@@ -1,0 +1,197 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        06/13/2013  15:28:34  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+E:\KEIL\C51\BIN\BL51.EXE KT.obj TO KT RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  KT.obj (KT)
+  E:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+  E:\KEIL\C51\LIB\C51S.LIB (?C?ULDIV)
+  E:\KEIL\C51\LIB\C51S.LIB (?C?ULCMP)
+  E:\KEIL\C51\LIB\C51S.LIB (STRLEN)
+  E:\KEIL\C51\LIB\C51S.LIB (?C?CLDPTR)
+
+
+LINK MAP OF MODULE:  KT (KT)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0022H     UNIT         _DATA_GROUP_
+            DATA    002AH     0002H     UNIT         ?DT?KT
+            IDATA   002CH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0003H     ABSOLUTE     
+            CODE    0006H     00F8H     UNIT         ?C?LIB_CODE
+            CODE    00FEH     00ABH     UNIT         ?PR?_SENDINTNUM?KT
+            CODE    01A9H     0052H     UNIT         ?PR?NGAT?KT
+            CODE    01FBH     0022H     UNIT         ?PR?MAIN?KT
+            CODE    021DH     0020H     UNIT         ?PR?_DELAY_MS?KT
+            CODE    023DH     0015H     UNIT         ?PR?_STRLEN?STRLEN
+            CODE    0252H     000CH     UNIT         ?C_C51STARTUP
+            CODE    025EH     0008H     UNIT         ?PR?_SENDCHAR?KT
+
+
+
+OVERLAY MAP OF MODULE:   KT (KT)
+
+
+SEGMENT                          DATA_GROUP 
+  +--> CALLED SEGMENT          START    LENGTH
+----------------------------------------------
+?PR?NGAT?KT                    -----    -----
+  +--> ?PR?_SENDCHAR?KT
+  +--> ?PR?_SENDINTNUM?KT
+
+?PR?_SENDINTNUM?KT             0019H    0011H
+  +--> ?PR?_STRLEN?STRLEN
+  +--> ?PR?_SENDCHAR?KT
+
+*** NEW ROOT ***************************************************
+
+BL51 BANKED LINKER/LOCATER V6.22                                                      06/13/2013  15:28:34  PAGE 2
+
+
+?C_C51STARTUP                  -----    -----
+  +--> ?PR?MAIN?KT
+
+?PR?MAIN?KT                    -----    -----
+  +--> ?PR?_SENDINTNUM?KT
+
+
+
+SYMBOL TABLE OF MODULE:  KT (KT)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        KT
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:00A8H         PUBLIC        IE
+  B:0098H.1       PUBLIC        TI
+  C:01FBH         PUBLIC        main
+  C:01A9H         PUBLIC        ngat
+  D:0099H         PUBLIC        SBUF
+  D:0098H         PUBLIC        SCON
+  D:0089H         PUBLIC        TMOD
+  C:00FEH         PUBLIC        _sendintnum
+  C:025EH         PUBLIC        _sendchar
+  B:0088H.0       PUBLIC        IT0
+  D:008DH         PUBLIC        TH1
+  D:002AH         PUBLIC        num
+  D:008BH         PUBLIC        TL1
+  C:021DH         PUBLIC        _delay_ms
+  B:0088H.4       PUBLIC        TR0
+  B:0088H.6       PUBLIC        TR1
+  -------         PROC          _DELAY_MS
+  D:0006H         SYMBOL        ms
+  -------         DO            
+  D:0004H         SYMBOL        i
+  D:0002H         SYMBOL        j
+  -------         ENDDO         
+  C:021DH         LINE#         7
+  C:021DH         LINE#         8
+  C:021DH         LINE#         10
+  C:0227H         LINE#         11
+  C:0227H         LINE#         12
+  C:0235H         LINE#         13
+  C:023CH         LINE#         14
+  -------         ENDPROC       _DELAY_MS
+  -------         PROC          _SENDCHAR
+  D:0007H         SYMBOL        a
+  C:025EH         LINE#         16
+  C:025EH         LINE#         17
+  C:025EH         LINE#         18
+  C:0260H         LINE#         19
+  C:0263H         LINE#         20
+  C:0265H         LINE#         21
+  -------         ENDPROC       _SENDCHAR
+  -------         PROC          _SENDINTNUM
+  D:0019H         SYMBOL        n
+  -------         DO            
+BL51 BANKED LINKER/LOCATER V6.22                                                      06/13/2013  15:28:34  PAGE 3
+
+
+  D:001DH         SYMBOL        a
+  D:0028H         SYMBOL        i
+  -------         ENDDO         
+  C:00FEH         LINE#         23
+  C:0106H         LINE#         24
+  C:0106H         LINE#         25
+  C:011CH         LINE#         26
+  C:011CH         LINE#         29
+  C:0134H         LINE#         30
+  C:0134H         LINE#         31
+  C:0150H         LINE#         32
+  C:0169H         LINE#         33
+  C:0173H         LINE#         34
+  C:017AH         LINE#         35
+  C:018FH         LINE#         36
+  C:018FH         LINE#         37
+  C:0199H         LINE#         39
+  C:01A3H         LINE#         40
+  C:01A3H         LINE#         41
+  C:01A8H         LINE#         42
+  -------         ENDPROC       _SENDINTNUM
+  -------         PROC          NGAT
+  C:01A9H         LINE#         43
+  C:01C6H         LINE#         45
+  C:01CEH         LINE#         46
+  C:01D3H         LINE#         47
+  C:01D6H         LINE#         48
+  C:01E0H         LINE#         49
+  -------         ENDPROC       NGAT
+  -------         PROC          MAIN
+  C:01FBH         LINE#         50
+  C:01FBH         LINE#         52
+  C:01FBH         LINE#         54
+  C:01FDH         LINE#         55
+  C:0200H         LINE#         56
+  C:0203H         LINE#         57
+  C:0206H         LINE#         58
+  C:020CH         LINE#         59
+  C:020EH         LINE#         60
+  C:0210H         LINE#         61
+  C:021BH         LINE#         62
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        KT
+
+  -------         MODULE        ?C?ULDIV
+  C:0042H         PUBLIC        ?C?ULDIV
+  -------         ENDMOD        ?C?ULDIV
+
+  -------         MODULE        ?C?ULCMP
+  C:00D4H         PUBLIC        ?C?ULCMP
+  -------         ENDMOD        ?C?ULCMP
+
+  -------         MODULE        STRLEN
+  C:023DH         PUBLIC        _STRLEN
+  -------         ENDMOD        STRLEN
+
+  -------         MODULE        ?C?CLDPTR
+BL51 BANKED LINKER/LOCATER V6.22                                                      06/13/2013  15:28:34  PAGE 4
+
+
+  C:00E5H         PUBLIC        ?C?CLDPTR
+  -------         ENDMOD        ?C?CLDPTR
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY_MS?KT
+
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_SENDINTNUM?KT
+    CALLER1: ?PR?NGAT?KT
+    CALLER2: ?C_C51STARTUP
+
+Program Size: data=45.0 xdata=0 code=614
+LINK/LOCATE RUN COMPLETE.  2 WARNING(S),  0 ERROR(S)

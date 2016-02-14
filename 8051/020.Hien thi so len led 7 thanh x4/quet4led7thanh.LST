@@ -1,0 +1,91 @@
+C51 COMPILER V9.01   QUET4LED7THANH                                                        07/30/2013 17:29:00 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE QUET4LED7THANH
+OBJECT MODULE PLACED IN quet4led7thanh.OBJ
+COMPILER INVOKED BY: E:\Keil\C51\BIN\C51.EXE quet4led7thanh.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include <REGX52.H>
+   2          #include<stdio.h>
+   3          #include<math.h>
+   4          sbit led1= P1^0;
+   5          sbit led2= P1^1;
+   6          sbit led3= P1^2;
+   7          sbit led4= P1^3;
+   8          unsigned char m[10]= {0xC0,0xF9,0xA4,0xB0,0x99,0x92,0x82,0xF8,0x80,0x90};
+   9          unsigned char donvi,chuc,tram,nghin;
+  10          
+  11          int num;
+  12          void delay(int time)
+  13          {
+  14   1              while(time--);
+  15   1      }
+  16          
+  17          void sang(unsigned int num)
+  18                  { 
+  19   1                                      int i;
+  20   1                                      //num=9876;
+  21   1                                      nghin=num/1000;
+  22   1                                      tram=(num%1000)/100;
+  23   1                                      chuc=((num%1000)%100)/10;
+  24   1                                      donvi=((num%1000)%100)%10;
+  25   1                                      for(i=0;i<50;i++)
+  26   1                                      {
+  27   2                                      P2=m[nghin];
+  28   2                                      led1=1; led2=led3=led4=0;
+  29   2                                      delay(100);
+  30   2      
+  31   2                                      P2=0xff;
+  32   2                                      delay(100);
+  33   2      
+  34   2                                      P2=m[tram];
+  35   2                                      led2=1; led1=led3=led4=0;
+  36   2                                      delay(100);
+  37   2      
+  38   2                                      P2=0xff;
+  39   2                                      delay(100);
+  40   2      
+  41   2                                      P2=m[chuc];
+  42   2                                      led3=1; led1=led2=led4=0;
+  43   2                                      delay(100);
+  44   2      
+  45   2                                      P2=0xff;
+  46   2                                      delay(100);
+  47   2      
+  48   2                                      P2=m[donvi];
+  49   2                                      led4=1; led1=led3=led2=0;
+  50   2                                      delay(100);
+  51   2      
+  52   2                                      P2=0xff;
+  53   2                                      delay(100);
+  54   2                                      }
+  55   1              }
+C51 COMPILER V9.01   QUET4LED7THANH                                                        07/30/2013 17:29:00 PAGE 2   
+
+  56          void main()
+  57          {
+  58   1              while(1)
+  59   1              {
+  60   2                      int n;
+  61   2                      for(n=0;n<9999;n++)
+  62   2                      {
+  63   3                      sang(n);
+  64   3                      }
+  65   2              }
+  66   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    260    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     16       2
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

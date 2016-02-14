@@ -1,0 +1,114 @@
+C51 COMPILER V9.01   DO_TAN_SO                                                             04/04/2013 10:41:41 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE DO_TAN_SO
+OBJECT MODULE PLACED IN do tan so.OBJ
+COMPILER INVOKED BY: F:\Keil\C51\BIN\C51.EXE do tan so.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include <REGX52.H>
+   2          #include<stdio.h>
+   3          sbit led1= P1^0;
+   4          sbit led2= P1^1;
+   5          sbit led3= P1^2;
+   6          sbit led4= P1^3;
+   7          unsigned int ms,tan_so;
+   8          
+   9          unsigned char m[10]= {0xC0,0xF9,0xA4,0xB0,0x99,0x92,0x82,0xF8,0x80,0x90};
+  10          int num,i,nghin,tram,chuc,donvi;
+  11          void delay(int time)
+  12          {
+  13   1              while(time--);
+  14   1      }
+  15          void sang(void)
+  16          {
+  17   1                                      int k;
+  18   1                                      nghin=num/1000;
+  19   1                                      tram=(num%1000)/100;
+  20   1                                      chuc=((num%1000)%100)/10;
+  21   1                                      donvi=((num%1000)%100)%10;
+  22   1                                      for(k=0;k<100;k++)
+  23   1                                      {
+  24   2                                              P2=m[nghin];
+  25   2                                              led1=1; led2=led3=led4=0;
+  26   2                                              delay(100);
+  27   2      
+  28   2                                              P2=0xff;
+  29   2                                              delay(100);
+  30   2      
+  31   2                                              P2=m[tram];
+  32   2                                              led2=1; led1=led3=led4=0;
+  33   2                                              delay(100);
+  34   2      
+  35   2                                              P2=0xff;
+  36   2                                              delay(100);
+  37   2      
+  38   2                                              P2=m[chuc];
+  39   2                                              led3=1; led1=led2=led4=0;
+  40   2                                              delay(100);
+  41   2      
+  42   2                                              P2=0xff;
+  43   2                                              delay(100);
+  44   2      
+  45   2                                              P2=m[donvi];
+  46   2                                              led4=1; led1=led3=led2=0;
+  47   2                                              delay(100);
+  48   2                                      
+  49   2                                              P2=0xff;
+  50   2                                              delay(100);
+  51   2                                      }
+  52   1      
+  53   1      }
+  54          
+  55          void ngat0(void) interrupt 0
+C51 COMPILER V9.01   DO_TAN_SO                                                             04/04/2013 10:41:41 PAGE 2   
+
+  56          {
+  57   1              tan_so++;       
+  58   1      }
+  59          void timer0(void) interrupt 1
+  60          {
+  61   1              TF0=0;
+  62   1              TH0=(65536-50000)>>8;
+  63   1              TL0=(65535-50000)%256;
+  64   1              ms++;
+  65   1      }
+  66          void main()
+  67          {
+  68   1      
+  69   1              
+  70   1              IE=0x81;  //cho phep ngat toan cuc      
+  71   1              TMOD = 0x01;
+  72   1              TR0=1;
+  73   1              TF0=1;
+  74   1              EA=1;
+  75   1              ET0=1;
+  76   1              IT0=1;
+  77   1      
+  78   1              while(1)
+  79   1              {
+  80   2                      if(ms>=20)
+  81   2                      {
+  82   3                              ms=0;
+  83   3                              num=tan_so;
+  84   3                              tan_so=0;
+  85   3                      }
+  86   2                       sang();
+  87   2      
+  88   2              }
+  89   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    281    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     26    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

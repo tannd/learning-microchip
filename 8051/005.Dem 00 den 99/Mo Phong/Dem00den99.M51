@@ -1,0 +1,172 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        10/03/2013  20:29:13  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\PROGRAM FILES\KEIL\C51\BIN\BL51.EXE dem00den99.obj TO Dem00den99 RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  dem00den99.obj (DEM00DEN99)
+  C:\PROGRAM FILES\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\PROGRAM FILES\KEIL\C51\LIB\C51S.LIB (?C?SIDIV)
+  C:\PROGRAM FILES\KEIL\C51\LIB\C51S.LIB (_GETKEY)
+  C:\PROGRAM FILES\KEIL\C51\LIB\C51S.LIB (?C_INIT)
+  C:\PROGRAM FILES\KEIL\C51\LIB\C51S.LIB (?C?UIDIV)
+
+
+LINK MAP OF MODULE:  Dem00den99 (DEM00DEN99)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     000EH     UNIT         ?DT?DEM00DEN99
+            DATA    0016H     0002H     UNIT         _DATA_GROUP_
+            IDATA   0018H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0020H     UNIT         ?PR?_DELAY?DEM00DEN99
+            CODE    0023H     0003H     ABSOLUTE     
+            CODE    0026H     00ABH     UNIT         ?PR?NGAT?DEM00DEN99
+            CODE    00D1H     008CH     UNIT         ?C_C51STARTUP
+            CODE    015DH     008BH     UNIT         ?C?LIB_CODE
+            CODE    01E8H     0031H     UNIT         ?PR?_LED7THANH?DEM00DEN99
+            CODE    0219H     0013H     UNIT         ?PR?MAIN?DEM00DEN99
+            CODE    022CH     000DH     UNIT         ?C_INITSEG
+            CODE    0239H     000AH     UNIT         ?PR?_GETKEY?_GETKEY
+
+
+
+OVERLAY MAP OF MODULE:   Dem00den99 (DEM00DEN99)
+
+
+SEGMENT                             DATA_GROUP 
+  +--> CALLED SEGMENT             START    LENGTH
+-------------------------------------------------
+?PR?NGAT?DEM00DEN99               0016H    0002H
+  +--> ?PR?_GETKEY?_GETKEY
+  +--> ?PR?_LED7THANH?DEM00DEN99
+
+?PR?_LED7THANH?DEM00DEN99         -----    -----
+  +--> ?PR?_DELAY?DEM00DEN99
+
+*** NEW ROOT ***************************************************
+
+?C_C51STARTUP                     -----    -----
+BL51 BANKED LINKER/LOCATER V6.22                                                      10/03/2013  20:29:13  PAGE 2
+
+
+  +--> ?PR?MAIN?DEM00DEN99
+  +--> ?C_INITSEG
+
+
+
+SYMBOL TABLE OF MODULE:  Dem00den99 (DEM00DEN99)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        DEM00DEN99
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:00A0H         PUBLIC        P2
+  C:01E8H         PUBLIC        _led7thanh
+  D:00A8H         PUBLIC        IE
+  C:0003H         PUBLIC        _delay
+  D:0008H         PUBLIC        so1
+  D:0009H         PUBLIC        so2
+  C:0219H         PUBLIC        main
+  C:0026H         PUBLIC        ngat
+  D:0098H         PUBLIC        SCON
+  D:0089H         PUBLIC        TMOD
+  D:008DH         PUBLIC        TH1
+  D:000AH         PUBLIC        num
+  D:008BH         PUBLIC        TL1
+  D:000BH         PUBLIC        LED
+  B:0088H.6       PUBLIC        TR1
+  D:0015H         PUBLIC        x
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        t
+  -------         DO            
+  D:0004H         SYMBOL        i
+  D:0002H         SYMBOL        j
+  -------         ENDDO         
+  C:0003H         LINE#         8
+  C:0003H         LINE#         9
+  C:0003H         LINE#         11
+  C:000DH         LINE#         12
+  C:0022H         LINE#         13
+  -------         ENDPROC       _DELAY
+  -------         PROC          _LED7THANH
+  D:0002H         SYMBOL        num
+  C:01E8H         LINE#         14
+  C:01ECH         LINE#         15
+  C:01F5H         LINE#         16
+  C:0202H         LINE#         17
+  C:020AH         LINE#         18
+  C:0212H         LINE#         19
+  -------         ENDPROC       _LED7THANH
+  -------         PROC          MAIN
+  C:0219H         LINE#         21
+  C:0219H         LINE#         22
+  C:0219H         LINE#         24
+  C:021CH         LINE#         25
+  C:021FH         LINE#         26
+  C:0225H         LINE#         27
+BL51 BANKED LINKER/LOCATER V6.22                                                      10/03/2013  20:29:13  PAGE 3
+
+
+  C:0227H         LINE#         28
+  C:022AH         LINE#         30
+  C:022AH         LINE#         31
+  C:022AH         LINE#         32
+  -------         ENDPROC       MAIN
+  -------         PROC          NGAT
+  -------         DO            
+  D:0016H         SYMBOL        i
+  C:0043H         SYMBOL        lap
+  -------         ENDDO         
+  C:0026H         LINE#         34
+  C:0043H         LINE#         37
+  C:0043H         LINE#         38
+  C:0048H         LINE#         39
+  C:004EH         LINE#         40
+  C:004EH         LINE#         42
+  C:004EH         LINE#         43
+  C:005FH         LINE#         44
+  C:005FH         LINE#         45
+  C:0066H         LINE#         46
+  C:0070H         LINE#         47
+  C:007AH         LINE#         48
+  C:007FH         LINE#         49
+  C:0081H         LINE#         51
+  C:0081H         LINE#         52
+  C:0096H         LINE#         53
+  C:0096H         LINE#         54
+  C:009DH         LINE#         55
+  C:00ACH         LINE#         56
+  C:00B6H         LINE#         57
+  C:00B6H         LINE#         58
+  -------         ENDPROC       NGAT
+  -------         ENDMOD        DEM00DEN99
+
+  -------         MODULE        ?C?SIDIV
+  C:015DH         PUBLIC        ?C?SIDIV
+  -------         ENDMOD        ?C?SIDIV
+
+  -------         MODULE        _GETKEY
+  C:0239H         PUBLIC        _GETKEY
+  -------         ENDMOD        _GETKEY
+
+  -------         MODULE        ?C?UIDIV
+  C:0193H         PUBLIC        ?C?UIDIV
+  -------         ENDMOD        ?C?UIDIV
+
+Program Size: data=25.0 xdata=0 code=579
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

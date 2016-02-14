@@ -1,0 +1,102 @@
+C51 COMPILER V9.01   595                                                                   05/09/2013 08:47:42 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE 595
+OBJECT MODULE PLACED IN 595.OBJ
+COMPILER INVOKED BY: F:\Keil\C51\BIN\C51.EXE 595.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include <REGX52.H>
+   2          
+   3          sbit SCK1   = P2^0;
+   4          sbit DATA1  = P2^1;
+   5          sbit SCL1   = P2^2;
+   6          
+   7          sbit SCK2   = P2^3;
+   8          sbit DATA2  = P2^4;
+   9          sbit SCL2   = P2^5;
+  10          //                                                        1     2        3        4    5    6  
+  11          unsigned char code mang[] = { 0xFC,0xFC,0x80,0x80,0xFC,0xFC,
+  12                                                                    0x83,0xF5,0xF6,0xF5,0x83,
+  13                                                                0x80,0xFD,0xFB,0xF7,0x80,0xFF,0xff
+  14                                                            }; //T A N
+  15          unsigned char cot[8]   = {0x01,0x02,0x04,0x08,0x10,0x20,0x40,0x80};
+  16          
+  17          
+  18          
+  19          void delay(unsigned int t)
+  20          {
+  21   1              unsigned int i,j;
+  22   1              for(i=0;i<t;i++)
+  23   1              for (j=0;j<=125;j++);   
+  24   1      }
+  25          
+  26          void quethang(unsigned char num)
+  27          {
+  28   1              int i,temp;
+  29   1              for(i=0;i<8;i++)
+  30   1              {
+  31   2                      temp = num;
+  32   2                      temp = temp&0x80;
+  33   2                      if(temp==0x80) DATA1 = 1;
+  34   2                      else DATA1 = 0;
+  35   2                      num=num<<1;
+  36   2                      SCK1 = 0;
+  37   2                      SCK1 = 1;
+  38   2              }
+  39   1              SCL1 = 0;
+  40   1              SCL1 = 1;
+  41   1      }
+  42          
+  43           void quetcot(unsigned char num)
+  44          {
+  45   1              int i,temp;
+  46   1              for(i=0;i<8;i++)
+  47   1              {
+  48   2                      temp = num;
+  49   2                      temp = temp&0x80;
+  50   2                      if(temp==0x80) DATA2 = 1;
+  51   2                      else DATA2 = 0;
+  52   2                      num=num<<1;
+  53   2                      SCK2 = 0;
+  54   2                      SCK2 = 1;
+  55   2              }
+C51 COMPILER V9.01   595                                                                   05/09/2013 08:47:42 PAGE 2   
+
+  56   1              SCL2 = 0;
+  57   1              SCL2 = 1;
+  58   1      }
+  59          
+  60          void main()
+  61          {
+  62   1              int j,i,k;
+  63   1              while(1)
+  64   1              {
+  65   2                      for(j=0;j<18;j++)
+  66   2                      
+  67   2                              for(k=0;k<10;k++)//tan so quet
+  68   2                              for(i=0;i<8;i++)
+  69   2                              {                                       
+  70   3                               quetcot(cot[i]);
+  71   3                               quethang(mang[(i+j)%18]);
+  72   3                               delay(5);
+  73   3                              }
+  74   2                              quetcot(0x00);
+  75   2                              delay(100);
+  76   2              }
+  77   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    255    ----
+   CONSTANT SIZE    =     18    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      8       6
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,177 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        05/09/2013  08:47:42  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+F:\KEIL\C51\BIN\BL51.EXE 595.obj TO 595 mattrix RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  595.obj (595)
+  F:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+  F:\KEIL\C51\LIB\C51S.LIB (?C?SIDIV)
+  F:\KEIL\C51\LIB\C51S.LIB (?C_INIT)
+  F:\KEIL\C51\LIB\C51S.LIB (?C?UIDIV)
+
+
+LINK MAP OF MODULE:  595 mattrix (595)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0008H     UNIT         ?DT?595
+            DATA    0010H     0006H     UNIT         _DATA_GROUP_
+            IDATA   0016H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     008CH     UNIT         ?C_C51STARTUP
+            CODE    008FH     008BH     UNIT         ?C?LIB_CODE
+            CODE    011AH     0089H     UNIT         ?PR?MAIN?595
+            CODE    01A3H     002BH     UNIT         ?PR?_QUETHANG?595
+            CODE    01CEH     002BH     UNIT         ?PR?_QUETCOT?595
+            CODE    01F9H     0020H     UNIT         ?PR?_DELAY?595
+            CODE    0219H     0012H     UNIT         ?CO?595
+            CODE    022BH     000BH     UNIT         ?C_INITSEG
+
+
+
+OVERLAY MAP OF MODULE:   595 mattrix (595)
+
+
+SEGMENT                          DATA_GROUP 
+  +--> CALLED SEGMENT          START    LENGTH
+----------------------------------------------
+?C_C51STARTUP                  -----    -----
+  +--> ?PR?MAIN?595
+  +--> ?C_INITSEG
+
+?PR?MAIN?595                   0010H    0006H
+  +--> ?PR?_QUETCOT?595
+  +--> ?CO?595
+  +--> ?PR?_QUETHANG?595
+  +--> ?PR?_DELAY?595
+
+
+
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/09/2013  08:47:42  PAGE 2
+
+
+SYMBOL TABLE OF MODULE:  595 mattrix (595)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        595
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:00A0H         PUBLIC        P2
+  C:01CEH         PUBLIC        _quetcot
+  C:01F9H         PUBLIC        _delay
+  B:00A0H.0       PUBLIC        SCK1
+  B:00A0H.3       PUBLIC        SCK2
+  B:00A0H.2       PUBLIC        SCL1
+  B:00A0H.5       PUBLIC        SCL2
+  C:0219H         PUBLIC        mang
+  C:011AH         PUBLIC        main
+  D:0008H         PUBLIC        cot
+  B:00A0H.1       PUBLIC        DATA1
+  B:00A0H.4       PUBLIC        DATA2
+  C:01A3H         PUBLIC        _quethang
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        t
+  -------         DO            
+  D:0004H         SYMBOL        i
+  D:0002H         SYMBOL        j
+  -------         ENDDO         
+  C:01F9H         LINE#         19
+  C:01F9H         LINE#         20
+  C:01F9H         LINE#         22
+  C:0203H         LINE#         23
+  C:0218H         LINE#         24
+  -------         ENDPROC       _DELAY
+  -------         PROC          _QUETHANG
+  D:0007H         SYMBOL        num
+  -------         DO            
+  D:0004H         SYMBOL        i
+  D:0002H         SYMBOL        temp
+  -------         ENDDO         
+  C:01A3H         LINE#         26
+  C:01A3H         LINE#         27
+  C:01A3H         LINE#         29
+  C:01A6H         LINE#         30
+  C:01A6H         LINE#         31
+  C:01A8H         LINE#         32
+  C:01ABH         LINE#         33
+  C:01B4H         LINE#         34
+  C:01B6H         LINE#         35
+  C:01BAH         LINE#         36
+  C:01BCH         LINE#         37
+  C:01BEH         LINE#         38
+  C:01C9H         LINE#         39
+  C:01CBH         LINE#         40
+  C:01CDH         LINE#         41
+  -------         ENDPROC       _QUETHANG
+  -------         PROC          _QUETCOT
+  D:0007H         SYMBOL        num
+  -------         DO            
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/09/2013  08:47:42  PAGE 3
+
+
+  D:0004H         SYMBOL        i
+  D:0002H         SYMBOL        temp
+  -------         ENDDO         
+  C:01CEH         LINE#         43
+  C:01CEH         LINE#         44
+  C:01CEH         LINE#         46
+  C:01D1H         LINE#         47
+  C:01D1H         LINE#         48
+  C:01D3H         LINE#         49
+  C:01D6H         LINE#         50
+  C:01DFH         LINE#         51
+  C:01E1H         LINE#         52
+  C:01E5H         LINE#         53
+  C:01E7H         LINE#         54
+  C:01E9H         LINE#         55
+  C:01F4H         LINE#         56
+  C:01F6H         LINE#         57
+  C:01F8H         LINE#         58
+  -------         ENDPROC       _QUETCOT
+  -------         PROC          MAIN
+  -------         DO            
+  D:0010H         SYMBOL        j
+  D:0012H         SYMBOL        i
+  D:0014H         SYMBOL        k
+  -------         ENDDO         
+  C:011AH         LINE#         60
+  C:011AH         LINE#         61
+  C:011AH         LINE#         63
+  C:011AH         LINE#         64
+  C:011AH         LINE#         65
+  C:011FH         LINE#         67
+  C:0124H         LINE#         68
+  C:0129H         LINE#         69
+  C:0129H         LINE#         70
+  C:0133H         LINE#         71
+  C:0154H         LINE#         72
+  C:015BH         LINE#         73
+  C:0194H         LINE#         74
+  C:0199H         LINE#         75
+  C:01A0H         LINE#         76
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        595
+
+  -------         MODULE        ?C?SIDIV
+  C:008FH         PUBLIC        ?C?SIDIV
+  -------         ENDMOD        ?C?SIDIV
+
+  -------         MODULE        ?C?UIDIV
+  C:00C5H         PUBLIC        ?C?UIDIV
+  -------         ENDMOD        ?C?UIDIV
+
+Program Size: data=23.0 xdata=0 code=566
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

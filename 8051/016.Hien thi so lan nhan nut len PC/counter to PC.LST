@@ -1,0 +1,124 @@
+C51 COMPILER V9.01   COUNTER_TO_PC                                                         06/13/2013 10:37:23 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE COUNTER_TO_PC
+OBJECT MODULE PLACED IN counter to PC.OBJ
+COMPILER INVOKED BY: E:\Keil\C51\BIN\C51.EXE counter to PC.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include <REGX52.H>
+   2          #include <stdio.h>
+   3          #include<string.h>  
+   4          
+   5          sbit sw = P3^5;
+   6          
+   7          void delay_ms(unsigned int  ms)
+   8          {
+   9   1              int i,j;
+  10   1              for(i=0;i<ms;i++)
+  11   1              {
+  12   2                      for(j=0;j<121;j++);
+  13   2              }
+  14   1      }
+  15          
+  16          void setup()
+  17          {
+  18   1                       
+  19   1                       TMOD=0x26;//timer1 che do 2, timer 0 che 2/dem
+  20   1                       SCON=0x50;
+  21   1                       TH1=TL1=-3;    //9600
+  22   1                       TH0=0;
+  23   1                      // TH1=TL1=-6;  //4800
+  24   1                       TR1=1;
+  25   1                       TR0=1;
+  26   1                       sw=1;
+  27   1      
+  28   1      }
+  29          void sendchar(unsigned char a)                       
+  30          {
+  31   1                  SBUF=a;                                
+  32   1                  while(TI==0);                    
+  33   1                  TI=0;                                      
+  34   1      }
+  35          
+  36          void sendstring(char *a)                 
+  37          {
+  38   1                  int i,n;                                     
+  39   1                  n=strlen(a);                          
+  40   1                  for(i=0;i<n;i++)                   
+  41   1                  {                                              
+  42   2                              sendchar(a[i]);
+  43   2                  }         
+  44   1      }
+  45          void sendintnum(unsigned long n)       
+  46          {         
+  47   1              if(n!=0)                                             
+  48   1                  {
+  49   2                         unsigned char a[11];                       
+  50   2                         int i;                                        
+  51   2                         for(i=0;n>0;i++)       //tach so           
+  52   2                              {
+  53   3                                    a[i]=(n%10)+48;      
+  54   3                                    n=n/10;                      
+  55   3                              }
+C51 COMPILER V9.01   COUNTER_TO_PC                                                         06/13/2013 10:37:23 PAGE 2   
+
+  56   2                                              a[i]=NULL;                                
+*** WARNING C260 IN LINE 56 OF COUNTER TO PC.C: '=': pointer truncation
+  57   2                          for(i=strlen(a);i>=0;i--)   //gui so          
+  58   2                              {                                                      
+  59   3                              sendchar(a[i]);                             
+  60   3                 
+  61   3                              }
+  62   2                  }
+  63   1              else sendchar('0');
+  64   1      }
+  65          
+  66          void sendrealnum(float n)                             
+  67          {
+  68   1                  unsigned long a=n/1;               //tach phan nguyen
+  69   1                  unsigned long b=(n-a)*10000;      //tach phan thap phan
+  70   1                  sendintnum(a);                  // gui phan nguyen
+  71   1                  if(b!=0)                          //gui phan thap phan va dau "."
+  72   1                  {
+  73   2                              sendchar('.');                                
+  74   2                              sendintnum(b);                
+  75   2                  }
+  76   1      }
+  77          
+  78          void main()                                                            
+  79          {
+  80   1                              unsigned int count;
+  81   1                              setup();
+  82   1                  while(1)                                
+  83   1                  {
+  84   2                             //sendintnum(10000);
+  85   2                                                 //sendchar(13);
+  86   2                                                      count=TL0;
+  87   2                                                      if (count >99)
+  88   2                                                      {
+  89   3                                                              count = 0;
+  90   3                                                              TL0=0;
+  91   3              
+  92   3                                                      }
+  93   2                                                 sendintnum(count);
+  94   2                                                 delay_ms(500);
+  95   2                                                 sendchar(8);
+  96   2                                                 //delay_ms(500);
+  97   2                  }
+  98   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    452    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----      36
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  1 WARNING(S),  0 ERROR(S)

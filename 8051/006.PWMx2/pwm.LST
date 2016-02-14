@@ -1,0 +1,74 @@
+C51 COMPILER V8.05a   PWM                                                                  09/13/2012 23:06:33 PAGE 1   
+
+
+C51 COMPILER V8.05a, COMPILATION OF MODULE PWM
+OBJECT MODULE PLACED IN pwm.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE pwm.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include<at89x52.h>
+   2          #define kenh1 P2_0
+   3          #define kenh2 P2_1
+   4          #define kenh3 P2_2
+   5          #define kenh4 P2_3
+   6          #define kenh5 P2_4
+   7          #define kenh6 P2_5
+   8          #define kenh7 P2_6
+   9          #define kenh8 P2_7
+  10          unsigned char t_on=0,chu_ki=100,pwm1=0;pwm2=0;pwm3=0;pwm4=0,pwm5 =0,pwm6=0,pwm7=0,pwm8=0;
+  11          void timer0() interrupt 1       // ham ngat timer 0
+  12          {
+  13   1      TR0=0;
+  14   1      t_on++;
+  15   1      if(t_on>chu_ki)t_on=0;
+  16   1      TR0=1;
+  17   1      }
+  18          void pwm()
+  19          {
+  20   1      kenh1=(pwm1>t_on)? 0:1; 
+  21   1      kenh2=(pwm2>t_on)? 0:1;
+  22   1      kenh3=(pwm3>t_on)? 0:1;
+  23   1      kenh4=(pwm4>t_on)? 0:1;
+  24   1      kenh5=(pwm5>t_on)? 0:1;
+  25   1      kenh6=(pwm6>t_on)? 0:1;
+  26   1      kenh7=(pwm7>t_on)? 0:1;
+  27   1      kenh8=(pwm8>t_on)? 0:1;
+  28   1      }
+  29          void main()
+  30          {
+  31   1      TMOD=0x02;      //timer 0 mode 2
+  32   1      TH0=155; //timer 0 chay 100uS
+  33   1      TL0=155;
+  34   1      ET0=1;   //cho phep ngat timer 0
+  35   1      EA=1;    //cho phep ngat toan cuc
+  36   1      pwm1=80;//gia tri pwm
+  37   1      pwm2=20;
+  38   1      pwm3=40;
+  39   1      pwm4=50;
+  40   1      pwm5=70;
+  41   1      pwm6=80;
+  42   1      pwm7=30;
+  43   1      pwm8=100;
+  44   1      TR0=1;
+  45   1      while(1)
+  46   1      {
+  47   2      pwm();  
+  48   2      }
+  49   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    244    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+C51 COMPILER V8.05a   PWM                                                                  09/13/2012 23:06:33 PAGE 2   
+
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     17    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

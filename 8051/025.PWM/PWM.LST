@@ -1,0 +1,82 @@
+C51 COMPILER V9.01   PWM                                                                   01/11/2015 19:01:41 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE PWM
+OBJECT MODULE PLACED IN PWM.OBJ
+COMPILER INVOKED BY: C:\Program Files (x86)\KeilC\C51\BIN\C51.EXE PWM.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          /**
+   2            ********************************************************************
+   3            * Filename : PWM.c
+   4            * Author       : nguyen.duy.tan
+   5            * Date         : 11/01/2015 (dd/mm/yyyy)                                                       
+   6            ********************************************************************
+   7            */
+   8          #include <REGX52.H>
+   9          /*********************************************************************/
+  10          sbit    PWM = P2^0;
+  11          sbit    TANG = P1^2;
+  12          sbit    GIAM = P1^5;
+  13          /*********************************************************************/
+  14          unsigned char dem=0,tocdo=50;
+  15          bit TANG1=1,TANG0=1,GIAM0=1,GIAM1=1;
+  16          /*********************************************************************/
+  17          void timer0(void) interrupt 1
+  18          {
+  19   1                      TR0 = 0;
+  20   1                      TF0 = 0;
+  21   1                      dem++;
+  22   1                      if(dem > 100){ dem = 0;}
+  23   1                      if(dem<tocdo){ PWM = 1;}else {PWM = 0;}
+  24   1                      TR0 = 1;
+  25   1      }
+  26          /*********************************************************************/
+  27          void phimnhan()// xu ly phim bam
+  28          {
+  29   1              TANG0=TANG1;TANG1=TANG;
+  30   1              if((TANG0==1)&&(TANG1==0))
+  31   1              tocdo=tocdo+10;
+  32   1              if(tocdo==110)tocdo=100;
+  33   1              
+  34   1              GIAM0=GIAM1;GIAM1=GIAM;
+  35   1              if((GIAM0==1)&&(GIAM1==0))
+  36   1              tocdo=tocdo-10;
+  37   1              if(tocdo==-10)tocdo=0;
+  38   1      }
+  39          /*********************************************************************/
+  40          void init()             // khoi tao
+  41          {
+  42   1              TMOD = 0x02;
+  43   1              IE = 0x82;
+  44   1              TH0=TL0=-100; // tao tan so 0.1 ms
+  45   1              TR0 = 1;
+  46   1              PWM=0;
+  47   1      }
+  48          /*********************************************************************/
+  49          void main(void)
+  50          {
+  51   1              init(); // khoi tao truoc khi chay
+  52   1              while(1) // lap vo tan
+  53   1              {
+  54   2                      phimnhan(); // goi ham xu ly phim bam
+  55   2              }
+C51 COMPILER V9.01   PWM                                                                   01/11/2015 19:01:41 PAGE 2   
+
+  56   1      }
+  57          /**************************** END ***********************************/
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    122    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      2    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =      4    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

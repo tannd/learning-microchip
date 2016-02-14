@@ -1,0 +1,156 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        07/30/2013  17:29:01  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+E:\KEIL\C51\BIN\BL51.EXE quet4led7thanh.obj TO quet4led7thanh RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  quet4led7thanh.obj (QUET4LED7THANH)
+  E:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+  E:\KEIL\C51\LIB\C51S.LIB (?C?UIDIV)
+  E:\KEIL\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  quet4led7thanh (QUET4LED7THANH)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0010H     UNIT         ?DT?QUET4LED7THANH
+            DATA    0018H     0002H     UNIT         _DATA_GROUP_
+            IDATA   001AH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     00C6H     UNIT         ?PR?_SANG?QUET4LED7THANH
+            CODE    00C9H     008CH     UNIT         ?C_C51STARTUP
+            CODE    0155H     0055H     UNIT         ?C?LIB_CODE
+            CODE    01AAH     0021H     UNIT         ?PR?MAIN?QUET4LED7THANH
+            CODE    01CBH     001DH     UNIT         ?PR?_DELAY?QUET4LED7THANH
+            CODE    01E8H     000DH     UNIT         ?C_INITSEG
+
+
+
+OVERLAY MAP OF MODULE:   quet4led7thanh (QUET4LED7THANH)
+
+
+SEGMENT                             DATA_GROUP 
+  +--> CALLED SEGMENT             START    LENGTH
+-------------------------------------------------
+?C_C51STARTUP                     -----    -----
+  +--> ?PR?MAIN?QUET4LED7THANH
+  +--> ?C_INITSEG
+
+?PR?MAIN?QUET4LED7THANH           0018H    0002H
+  +--> ?PR?_SANG?QUET4LED7THANH
+
+?PR?_SANG?QUET4LED7THANH          -----    -----
+  +--> ?PR?_DELAY?QUET4LED7THANH
+
+
+
+SYMBOL TABLE OF MODULE:  quet4led7thanh (QUET4LED7THANH)
+
+  VALUE           TYPE          NAME
+BL51 BANKED LINKER/LOCATER V6.22                                                      07/30/2013  17:29:01  PAGE 2
+
+
+  ----------------------------------
+
+  -------         MODULE        QUET4LED7THANH
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  C:01DDH         PUBLIC        _delay
+  D:0008H         PUBLIC        nghin
+  D:0009H         PUBLIC        donvi
+  D:000AH         PUBLIC        chuc
+  C:01AAH         PUBLIC        main
+  C:0003H         PUBLIC        _sang
+  D:000BH         PUBLIC        tram
+  D:000CH         PUBLIC        num
+  B:0090H.0       PUBLIC        led1
+  B:0090H.1       PUBLIC        led2
+  B:0090H.2       PUBLIC        led3
+  B:0090H.3       PUBLIC        led4
+  D:000EH         PUBLIC        m
+  C:01CDH         SYMBOL        L?0018
+  C:01CFH         SYMBOL        L?0019
+  -------         PROC          L?0017
+  -------         ENDPROC       L?0017
+  C:01CDH         SYMBOL        L?0018
+  C:01CFH         SYMBOL        L?0019
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        time
+  C:01DDH         LINE#         12
+  C:01DDH         LINE#         13
+  C:01DDH         LINE#         14
+  C:01E7H         LINE#         15
+  -------         ENDPROC       _DELAY
+  -------         PROC          _SANG
+  D:0002H         SYMBOL        num
+  -------         DO            
+  D:0002H         SYMBOL        i
+  -------         ENDDO         
+  C:0003H         LINE#         17
+  C:0007H         LINE#         18
+  C:0007H         LINE#         21
+  C:0010H         LINE#         22
+  C:002AH         LINE#         23
+  C:0051H         LINE#         24
+  C:0078H         LINE#         25
+  C:007BH         LINE#         26
+  C:007BH         LINE#         27
+  C:0083H         LINE#         28
+  C:008BH         LINE#         29
+  C:008BH         LINE#         31
+  C:008BH         LINE#         32
+  C:008EH         LINE#         34
+  C:0096H         LINE#         35
+  C:009AH         LINE#         36
+  C:009AH         LINE#         38
+  C:009AH         LINE#         39
+  C:009DH         LINE#         41
+  C:00A5H         LINE#         42
+BL51 BANKED LINKER/LOCATER V6.22                                                      07/30/2013  17:29:01  PAGE 3
+
+
+  C:00ABH         LINE#         43
+  C:00ABH         LINE#         45
+  C:00ABH         LINE#         46
+  C:00AEH         LINE#         48
+  C:00B6H         LINE#         49
+  C:00BAH         LINE#         50
+  C:00BAH         LINE#         52
+  C:00BAH         LINE#         53
+  C:00BDH         LINE#         54
+  C:00C8H         LINE#         55
+  -------         ENDPROC       _SANG
+  -------         PROC          MAIN
+  -------         DO            
+  D:0018H         SYMBOL        n
+  -------         ENDDO         
+  C:01AAH         LINE#         56
+  C:01AAH         LINE#         57
+  C:01AAH         LINE#         58
+  C:01AAH         LINE#         59
+  C:01AAH         LINE#         61
+  C:01AFH         LINE#         62
+  C:01AFH         LINE#         63
+  C:01B6H         LINE#         64
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        QUET4LED7THANH
+
+  -------         MODULE        ?C?UIDIV
+  C:0155H         PUBLIC        ?C?UIDIV
+  -------         ENDMOD        ?C?UIDIV
+
+Program Size: data=27.0 xdata=0 code=501
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

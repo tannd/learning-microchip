@@ -1,0 +1,113 @@
+C51 COMPILER V9.01   LCD                                                                   05/23/2013 14:00:15 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE LCD
+OBJECT MODULE PLACED IN lcd.OBJ
+COMPILER INVOKED BY: F:\Keil\C51\BIN\C51.EXE lcd.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include <REGX52.H>
+   2          #include <stdio.h>
+   3          sbit RS = P1^0;
+   4          sbit RW = P1^1;
+   5          sbit EN = P1^2;
+   6          char x;
+   7          void delay30ms(void)
+   8                  {
+   9   1                      TMOD = 0x10;
+  10   1                      TH1 = 35535/256;
+  11   1                      TL1 = 35535%256;
+  12   1                      TR1 = 1;
+  13   1                      while (!TF1);
+  14   1                      TR1 = TF1=0;
+  15   1              }
+  16          void delay(unsigned long int t)
+  17                  {
+  18   1                      unsigned long int i;
+  19   1                      for (i=0;i<t;i++);
+  20   1              }
+  21          void busy_flag(void)
+  22                  {
+  23   1                      P2 = 0xff;
+  24   1                      RS = 0;
+  25   1                      RW = 1;
+  26   1                      do
+  27   1                              {
+  28   2                                      EN = 0;
+  29   2                                      delay(10);
+  30   2                                      EN = 1;
+  31   2                                      x = P2;
+  32   2                                      x = x&0x80;
+  33   2                              }
+  34   1                      while(x==0x80);
+  35   1              }
+  36          void write_command(unsigned char LCD_command)
+  37                  {
+  38   1                      busy_flag();
+  39   1                      P2 = LCD_command;
+  40   1                      RS = 0;
+  41   1                      RW = 0;
+  42   1                      EN = 1;
+  43   1                      delay(50);
+  44   1                      EN = 0;
+  45   1                      delay(50);
+  46   1              }
+  47          void write_data (unsigned char LCD_data)
+  48                  {
+  49   1                      busy_flag();
+  50   1                      P2 = LCD_data;
+  51   1                      RS = 1;
+  52   1                      RW = 0;
+  53   1                      EN = 1;
+  54   1                      delay(50);
+  55   1                      EN = 0;
+C51 COMPILER V9.01   LCD                                                                   05/23/2013 14:00:15 PAGE 2   
+
+  56   1                      delay(50);
+  57   1              }
+  58          void write_string(char *s)
+  59                  {
+  60   1                      while(*s)
+  61   1                              {
+  62   2                                      write_data(*s);
+  63   2                                      s++;
+  64   2                              }
+  65   1              }
+  66          
+  67          void init(void)
+  68                  {
+  69   1                      write_command(0x03);
+  70   1                      write_command(0x38);
+  71   1                      write_command(0x06);
+  72   1                      write_command(0x0c);
+  73   1              }
+  74          void main(void)
+  75                  {
+  76   1                      delay30ms();
+  77   1                      init();
+  78   1                      
+  79   1                              
+  80   1                                      write_command(0x01);
+  81   1                                      delay(10);
+  82   1                                      write_command(0x80);
+  83   1                                      write_string(" DUY TAN ");
+  84   1                                      delay(10);
+  85   1                                      write_command(0xc0);
+  86   1                                      write_string (" KHOA DIEN TU");
+  87   1                                 while(1);
+  88   1              }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    288    ----
+   CONSTANT SIZE    =     24    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      1      13
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

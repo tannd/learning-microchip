@@ -1,0 +1,173 @@
+C51 COMPILER V9.01   LCD                                                                   06/13/2013 12:25:48 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE LCD
+OBJECT MODULE PLACED IN LCD.OBJ
+COMPILER INVOKED BY: E:\Keil\C51\BIN\C51.EXE LCD.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include <REGX52.H>
+   2          #include <stdio.h>
+   3          #include <string.h>
+   4          
+   5          sbit sw = P3^5;
+   6          
+   7          sbit RS = P1^0;
+   8          sbit RW = P1^1;
+   9          sbit EN = P1^2;
+  10          char x;
+  11          void delay_ms(unsigned int ms)
+  12          {
+  13   1              unsigned int x,y;
+  14   1              for(x=0;x<ms;x++)
+  15   1              for(y=0;y<=125;y++);
+  16   1      }
+  17          void delay(unsigned long int t)
+  18                  {
+  19   1                      unsigned long int i;
+  20   1                      for (i=0;i<t;i++);
+  21   1              }
+  22          void busy_flag(void)
+  23                  {
+  24   1                      P2 = 0xff;
+  25   1                      RS = 0;
+  26   1                      RW = 1;
+  27   1                      do
+  28   1                              {
+  29   2                                      EN = 0;
+  30   2                                      delay(10);
+  31   2                                      EN = 1;
+  32   2                                      x = P2;
+  33   2                                      x = x&0x80;
+  34   2                              }
+  35   1                      while(x==0x80);
+  36   1              }
+  37          void write_command(unsigned char LCD_command)
+  38                  {
+  39   1                      busy_flag();
+  40   1                      P2 = LCD_command;
+  41   1                      RS = 0;
+  42   1                      RW = 0;
+  43   1                      EN = 1;
+  44   1                      delay(50);
+  45   1                      EN = 0;
+  46   1                      delay(50);
+  47   1              }
+  48          void write_data (unsigned char LCD_data)
+  49                  {
+  50   1                      busy_flag();
+  51   1                      P2 = LCD_data;
+  52   1                      RS = 1;
+  53   1                      RW = 0;
+  54   1                      EN = 1;
+  55   1                      delay(50);
+C51 COMPILER V9.01   LCD                                                                   06/13/2013 12:25:48 PAGE 2   
+
+  56   1                      EN = 0;
+  57   1                      delay(50);
+  58   1              }
+  59          void write_string(char *s)
+  60                  {
+  61   1                      while(*s)
+  62   1                              {
+  63   2                                      write_data(*s);
+  64   2                                      s++;
+  65   2                              }
+  66   1              }
+  67          
+  68          void init(void)
+  69                  {
+  70   1                      write_command(0x03);//
+  71   1                      write_command(0x38);//hien thi 2 dong
+  72   1                      write_command(0x06);// tro ve dau
+  73   1                      write_command(0x0c);// bo dau nhay
+  74   1              }
+  75          void restart()
+  76          {
+  77   1                      write_command(0x01);//xoa man hinh
+  78   1                      delay(1000);
+  79   1      }
+  80          void startline1()
+  81          {
+  82   1                      write_command(0x80);//vi tro con tro dau dong 1
+  83   1                      delay(1000);
+  84   1      }
+  85          void startline2()
+  86          {
+  87   1                      write_command(0xc0);//vi tri con tro dau dong 2
+  88   1                      delay(1000);
+  89   1      }
+  90          void write_intnum(unsigned long n)       
+  91          {         
+  92   1              if(n!=0)                                             
+  93   1                  {
+  94   2                         unsigned char a[11];                       
+  95   2                         int i;                                        
+  96   2                         for(i=0;n>0;i++)       //tach so           
+  97   2                              {
+  98   3                                    a[i]=(n%10)+48;      
+  99   3                                    n=n/10;                      
+ 100   3                              }
+ 101   2                                              a[i]=NULL;                                
+*** WARNING C260 IN LINE 101 OF LCD.C: '=': pointer truncation
+ 102   2                          for(i=strlen(a);i>=0;i--)   //gui so          
+ 103   2                              {                                                      
+ 104   3                              write_data(a[i]);                             
+ 105   3                 
+ 106   3                              }
+ 107   2                  }
+ 108   1              else write_data('0');
+ 109   1      }
+ 110          
+ 111          void write_realnum(float n)                             
+ 112          {
+ 113   1                  unsigned long a=n/1;               //tach phan nguyen
+ 114   1                  unsigned long b=(n-a)*10000;      //tach phan thap phan
+ 115   1                  write_intnum(a);                  // gui phan nguyen
+ 116   1                  if(b!=0)                          //gui phan thap phan va dau "."
+C51 COMPILER V9.01   LCD                                                                   06/13/2013 12:25:48 PAGE 3   
+
+ 117   1                  {
+ 118   2                              write_data('.');                                
+ 119   2                              write_intnum(b);                
+ 120   2                  }
+ 121   1      }
+ 122          void main(void)
+ 123          {
+ 124   1                              unsigned int count;
+ 125   1                  TMOD=0x60;
+ 126   1                  TH1=0x00;              
+ 127   1                      sw=1;                    
+ 128   1                  TR1=1;                       
+ 129   1      
+ 130   1                  while(1)                     
+ 131   1                  {
+ 132   2                                                      delay_ms(30);
+ 133   2                                                      init();
+ 134   2                              count=TL1;
+ 135   2                                                      if (count >99)
+ 136   2                                                      {
+ 137   3                                                              count = 0;
+ 138   3                                                              TL1=0;
+ 139   3              
+ 140   3                                                      }
+ 141   2                                                      write_intnum(count);
+ 142   2                                                      delay_ms(10);
+ 143   2      
+ 144   2                  }
+ 145   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    644    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      1      44
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  1 WARNING(S),  0 ERROR(S)

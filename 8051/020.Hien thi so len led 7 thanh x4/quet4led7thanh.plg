@@ -1,0 +1,15 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+F:\ELECTRONIC\CodeVDK\hien thi so len led 7 thanh x4\quet4led7thanh.uvproj
+Project File Date:  04/02/2013
+
+<h2>Output:</h2>
+Build target 'Target 1'
+compiling quet4led7thanh.c...
+linking...
+Program Size: data=27.0 xdata=0 code=501
+creating hex file from "quet4led7thanh"...
+"quet4led7thanh" - 0 Error(s), 0 Warning(s).

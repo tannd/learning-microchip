@@ -1,0 +1,136 @@
+C51 COMPILER V9.01   LCD_ADC                                                               05/23/2013 16:24:23 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE LCD_ADC
+OBJECT MODULE PLACED IN LCD_ADC.OBJ
+COMPILER INVOKED BY: F:\Keil\C51\BIN\C51.EXE LCD_ADC.C BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include <regx51.h>
+   2          #include <stdio.h>
+   3          #include <math.h>
+   4          #include <string.h>
+   5          #include <stdlib.h>
+   6          
+   7          //khai bao LCD
+   8          sbit RS = P3^0;
+   9          sbit RW = P3^1;
+  10          sbit EN = P3^2;
+  11          char x;
+  12          
+  13          //khai bao ADC
+  14          unsigned char n;
+  15          sbit INTR_ADC = P3^3;
+  16          sbit RD_ADC = P3^4;
+  17          sbit WR_ADC = P3^5;
+  18          
+  19          int i;
+  20          float volt;
+  21          
+  22          
+  23          void delay_ms(unsigned int ms)
+  24          {
+  25   1              unsigned int x,y;
+  26   1              for(x=0;x<ms;x++)
+  27   1              for(y=0;y<=125;y++);
+  28   1      }
+  29          
+  30          ////ham cho LCD
+  31          void delay30ms(void)
+  32                  {
+  33   1                      TMOD = 0x10;
+  34   1                      TH1 = 35535/256;
+  35   1                      TL1 = 35535%256;
+  36   1                      TR1 = 1;
+  37   1                      while (!TF1);
+  38   1                      TR1 = TF1=0;
+  39   1              }
+  40          void delay(unsigned long int t)
+  41                  {
+  42   1                      unsigned long int i;
+  43   1                      for (i=0;i<t;i++);
+  44   1              }
+  45          void busy_flag(void)
+  46                  {
+  47   1                      P2 = 0xff;
+  48   1                      RS = 0;
+  49   1                      RW = 1;
+  50   1                      do
+  51   1                              {
+  52   2                                      EN = 0;
+  53   2                                      delay(10);
+  54   2                                      EN = 1;
+  55   2                                      x = P2;
+C51 COMPILER V9.01   LCD_ADC                                                               05/23/2013 16:24:23 PAGE 2   
+
+  56   2                                      x = x&0x80;
+  57   2                              }
+  58   1                      while(x==0x80);
+  59   1              }
+  60          void write_command(unsigned char LCD_command)
+  61                  {
+  62   1                      busy_flag();
+  63   1                      P2 = LCD_command;
+  64   1                      RS = 0;
+  65   1                      RW = 0;
+  66   1                      EN = 1;
+  67   1                      delay(50);
+  68   1                      EN = 0;
+  69   1                      delay(50);
+  70   1              }
+  71          void write_data (unsigned char LCD_data)
+  72                  {
+  73   1                      busy_flag();
+  74   1                      P2 = LCD_data;
+  75   1                      RS = 1;
+  76   1                      RW = 0;
+  77   1                      EN = 1;
+  78   1                      delay(50);
+  79   1                      EN = 0;
+  80   1                      delay(50);
+  81   1              }
+  82          void write_string(char *s)
+  83                  {
+  84   1                      while(*s)
+  85   1                              {
+  86   2                                      write_data(*s);
+  87   2                                      s++;
+  88   2                              }
+  89   1              }
+  90          
+  91          void init(void)
+  92                  {
+  93   1                      write_command(0x03);
+  94   1                      write_command(0x38);
+  95   1                      write_command(0x06);
+  96   1                      write_command(0x0c);
+  97   1              }
+  98          //het khai bao cho LCD
+  99          
+ 100          void main(void)
+ 101           {
+ 102   1              P2 = 0xFF;
+ 103   1              while(1)
+ 104   1                      {
+ 105   2                          
+ 106   2                              n = P1;
+ 107   2                              delay30ms();
+ 108   2                              init();
+ 109   2                              write_command(0x01); //xoa man hinh
+ 110   2                              delay(10);
+ 111   2      
+ 112   2                              write_command(0x80);//dua con tro ve dau dong
+ 113   2                              write_string(n);
+*** ERROR C214 IN LINE 113 OF LCD_ADC.C: illegal pointer conversion
+ 114   2                              delay(10);
+ 115   2      
+ 116   2      
+C51 COMPILER V9.01   LCD_ADC                                                               05/23/2013 16:24:23 PAGE 3   
+
+ 117   2                              delay(2000);
+ 118   2                              
+ 119   2                      }
+ 120   1       }
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  1 ERROR(S)

@@ -1,0 +1,17 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+D:\Learning\ELECTRONIC\8051\Code\hien thi so len led 7 thanh x2\7segx2.uvproj
+Project File Date:  03/14/2013
+
+<h2>Output:</h2>
+Build target 'Target 1'
+compiling 7segx2.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY_MS?7SEGX2
+Program Size: data=23.0 xdata=0 code=457
+creating hex file from "7segx2"...
+"7segx2" - 0 Error(s), 1 Warning(s).

@@ -1,0 +1,103 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        04/03/2013  22:59:50  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+F:\KEIL\C51\BIN\BL51.EXE 2xung.obj TO 2xung RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  2xung.obj (2XUNG)
+  F:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  2xung (2XUNG)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            IDATA   0008H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0003H     UNIT         ?PR?NGATT1?2XUNG
+                    0006H     0005H                  *** GAP ***
+            CODE    000BH     0003H     ABSOLUTE     
+            CODE    000EH     000DH     UNIT         ?PR?NGATT0?2XUNG
+            CODE    001BH     0003H     ABSOLUTE     
+            CODE    001EH     0015H     UNIT         ?PR?MAIN?2XUNG
+            CODE    0033H     000CH     UNIT         ?C_C51STARTUP
+
+
+
+OVERLAY MAP OF MODULE:   2xung (2XUNG)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?2XUNG
+
+
+
+SYMBOL TABLE OF MODULE:  2xung (2XUNG)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        2XUNG
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:00A0H         PUBLIC        P2
+  D:00A8H         PUBLIC        IE
+  D:00B8H         PUBLIC        IP
+  C:001EH         PUBLIC        main
+  C:000EH         PUBLIC        ngatT0
+  C:0003H         PUBLIC        ngatT1
+BL51 BANKED LINKER/LOCATER V6.22                                                      04/03/2013  22:59:50  PAGE 2
+
+
+  D:0089H         PUBLIC        TMOD
+  B:0088H.5       PUBLIC        TF0
+  D:008CH         PUBLIC        TH0
+  D:008DH         PUBLIC        TH1
+  D:008AH         PUBLIC        TL0
+  D:008BH         PUBLIC        TL1
+  B:0088H.4       PUBLIC        TR0
+  B:0088H.6       PUBLIC        TR1
+  B:00A0H.0       PUBLIC        xung1
+  B:00A0H.1       PUBLIC        xung2
+  -------         PROC          NGATT0
+  C:000EH         LINE#         5
+  C:000EH         LINE#         7
+  C:0010H         LINE#         8
+  C:0013H         LINE#         9
+  C:0016H         LINE#         10
+  C:0018H         LINE#         11
+  C:001AH         LINE#         12
+  -------         ENDPROC       NGATT0
+  -------         PROC          NGATT1
+  C:0003H         LINE#         13
+  C:0003H         LINE#         15
+  C:0005H         LINE#         16
+  -------         ENDPROC       NGATT1
+  -------         PROC          MAIN
+  C:001EH         LINE#         17
+  C:001EH         LINE#         18
+  C:001EH         LINE#         19
+  C:0021H         LINE#         20
+  C:0027H         LINE#         21
+  C:0029H         LINE#         23
+  C:002CH         LINE#         24
+  C:002FH         LINE#         25
+  C:0031H         LINE#         26
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        2XUNG
+
+Program Size: data=9.0 xdata=0 code=58
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

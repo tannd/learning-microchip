@@ -1,0 +1,202 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        03/28/2013  07:47:22  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+F:\KEIL\C51\BIN\BL51.EXE ascii.obj TO ascii RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL WITH FLOATING POINT ARITHMETIC
+
+
+INPUT MODULES INCLUDED:
+  ascii.obj (ASCII)
+  F:\KEIL\C51\LIB\C51FPS.LIB (PRINTF)
+  F:\KEIL\C51\LIB\C51FPS.LIB (?C?FPROUND)
+  F:\KEIL\C51\LIB\C51FPS.LIB (?C?FPCONVERT)
+  F:\KEIL\C51\LIB\C51FPS.LIB (?C?FPADD)
+  F:\KEIL\C51\LIB\C51FPS.LIB (?C?FPMUL)
+  F:\KEIL\C51\LIB\C51FPS.LIB (?C?FPDIV)
+  F:\KEIL\C51\LIB\C51FPS.LIB (?C?FTNPWR)
+  F:\KEIL\C51\LIB\C51FPS.LIB (?C?FPGETOPN)
+  F:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+  F:\KEIL\C51\LIB\C51S.LIB (?C?CLDPTR)
+  F:\KEIL\C51\LIB\C51S.LIB (?C?CLDOPTR)
+  F:\KEIL\C51\LIB\C51S.LIB (?C?CSTPTR)
+  F:\KEIL\C51\LIB\C51S.LIB (?C?SIDIV)
+  F:\KEIL\C51\LIB\C51S.LIB (?C?PLDIIDATA)
+  F:\KEIL\C51\LIB\C51S.LIB (?C?CCASE)
+  F:\KEIL\C51\LIB\C51S.LIB (PUTCHAR)
+  F:\KEIL\C51\LIB\C51S.LIB (?C?UIDIV)
+
+
+LINK MAP OF MODULE:  ascii (ASCII)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0002H     UNIT         ?DT?ASCII
+                    000AH     0016H                  *** GAP ***
+            BIT     0020H.0   0001H.1   UNIT         _BIT_GROUP_
+                    0021H.1   0000H.7                *** GAP ***
+            DATA    0022H     001CH     UNIT         _DATA_GROUP_
+            IDATA   003EH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     05A3H     UNIT         ?C?LIB_CODE
+            CODE    05A6H     046FH     UNIT         ?PR?PRINTF?PRINTF
+            CODE    0A15H     0068H     UNIT         ?PR?MAIN?ASCII
+            CODE    0A7DH     0027H     UNIT         ?PR?PUTCHAR?PUTCHAR
+            CODE    0AA4H     0020H     UNIT         ?PR?_DELAY_MS?ASCII
+            CODE    0AC4H     001DH     UNIT         ?CO?ASCII
+            CODE    0AE1H     000CH     UNIT         ?C_C51STARTUP
+
+
+
+OVERLAY MAP OF MODULE:   ascii (ASCII)
+
+
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/28/2013  07:47:22  PAGE 2
+
+
+SEGMENT                           BIT_GROUP          DATA_GROUP 
+  +--> CALLED SEGMENT          START    LENGTH     START    LENGTH
+------------------------------------------------------------------
+?C_C51STARTUP                  -----    -----      -----    -----
+  +--> ?PR?MAIN?ASCII
+
+?PR?MAIN?ASCII                 -----    -----      -----    -----
+  +--> ?PR?PUTCHAR?PUTCHAR
+  +--> ?PR?_DELAY_MS?ASCII
+  +--> ?CO?ASCII
+  +--> ?PR?PRINTF?PRINTF
+
+?PR?PRINTF?PRINTF              0020H.0  0001H.1    0022H    001CH
+  +--> ?PR?PUTCHAR?PUTCHAR
+
+
+
+SYMBOL TABLE OF MODULE:  ascii (ASCII)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        ASCII
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:0A15H         PUBLIC        main
+  D:0098H         PUBLIC        SCON
+  D:0089H         PUBLIC        TMOD
+  D:008DH         PUBLIC        TH1
+  D:008BH         PUBLIC        TL1
+  C:0AA4H         PUBLIC        _delay_ms
+  B:0088H.6       PUBLIC        TR1
+  D:0008H         PUBLIC        c
+  -------         PROC          _DELAY_MS
+  D:0006H         SYMBOL        ms
+  -------         DO            
+  D:0004H         SYMBOL        i
+  D:0002H         SYMBOL        j
+  -------         ENDDO         
+  C:0AA4H         LINE#         3
+  C:0AA4H         LINE#         4
+  C:0AA4H         LINE#         6
+  C:0AAEH         LINE#         7
+  C:0AAEH         LINE#         8
+  C:0ABCH         LINE#         9
+  C:0AC3H         LINE#         10
+  -------         ENDPROC       _DELAY_MS
+  -------         PROC          MAIN
+  C:0A15H         LINE#         13
+  C:0A15H         LINE#         14
+  C:0A15H         LINE#         15
+  C:0A18H         LINE#         16
+  C:0A1BH         LINE#         17
+  C:0A21H         LINE#         18
+  C:0A23H         LINE#         20
+  C:0A23H         LINE#         27
+  C:0A29H         LINE#         28
+  C:0A29H         LINE#         30
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/28/2013  07:47:22  PAGE 3
+
+
+  C:0A2EH         LINE#         31
+  C:0A48H         LINE#         32
+  C:0A4DH         LINE#         33
+  C:0A54H         LINE#         34
+  C:0A67H         LINE#         35
+  C:0A7BH         LINE#         36
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        ASCII
+
+  -------         MODULE        PRINTF
+  D:0022H         PUBLIC        ?_PRINTF?BYTE
+  D:0022H         PUBLIC        ?_SPRINTF?BYTE
+  C:0608H         PUBLIC        _PRINTF
+  C:0602H         PUBLIC        _SPRINTF
+  -------         ENDMOD        PRINTF
+
+  -------         MODULE        ?C?FPROUND
+  C:0003H         PUBLIC        ?C?FPROUND
+  -------         ENDMOD        ?C?FPROUND
+
+  -------         MODULE        ?C?FPCONVERT
+  C:0032H         PUBLIC        ?C?FPCONVERT
+  -------         ENDMOD        ?C?FPCONVERT
+
+  -------         MODULE        ?C?FPADD
+  C:013CH         PUBLIC        ?C?FPADD
+  C:0138H         PUBLIC        ?C?FPSUB
+  -------         ENDMOD        ?C?FPADD
+
+  -------         MODULE        ?C?FPMUL
+  C:022DH         PUBLIC        ?C?FPMUL
+  -------         ENDMOD        ?C?FPMUL
+
+  -------         MODULE        ?C?FPDIV
+  C:0336H         PUBLIC        ?C?FPDIV
+  -------         ENDMOD        ?C?FPDIV
+
+  -------         MODULE        ?C?FTNPWR
+  C:0403H         PUBLIC        ?C?FTNPWR
+  -------         ENDMOD        ?C?FTNPWR
+
+  -------         MODULE        ?C?CLDPTR
+  C:048DH         PUBLIC        ?C?CLDPTR
+  -------         ENDMOD        ?C?CLDPTR
+
+  -------         MODULE        ?C?CLDOPTR
+  C:04A6H         PUBLIC        ?C?CLDOPTR
+  -------         ENDMOD        ?C?CLDOPTR
+
+  -------         MODULE        ?C?CSTPTR
+  C:04D3H         PUBLIC        ?C?CSTPTR
+  -------         ENDMOD        ?C?CSTPTR
+
+  -------         MODULE        ?C?SIDIV
+  C:04E5H         PUBLIC        ?C?SIDIV
+  -------         ENDMOD        ?C?SIDIV
+
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/28/2013  07:47:22  PAGE 4
+
+
+  -------         MODULE        ?C?PLDIIDATA
+  C:051BH         PUBLIC        ?C?PLDIIDATA
+  -------         ENDMOD        ?C?PLDIIDATA
+
+  -------         MODULE        ?C?CCASE
+  C:052BH         PUBLIC        ?C?CCASE
+  -------         ENDMOD        ?C?CCASE
+
+  -------         MODULE        PUTCHAR
+  C:0A7DH         PUBLIC        _PUTCHAR
+  -------         ENDMOD        PUTCHAR
+
+  -------         MODULE        ?C?UIDIV
+  C:0551H         PUBLIC        ?C?UIDIV
+  -------         ENDMOD        ?C?UIDIV
+
+Program Size: data=40.1 xdata=0 code=2797
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,50 @@
+C51 COMPILER V9.01   2XUNG                                                                 04/03/2013 22:59:50 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE 2XUNG
+OBJECT MODULE PLACED IN 2xung.OBJ
+COMPILER INVOKED BY: F:\Keil\C51\BIN\C51.EXE 2xung.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include <REGX52.H>
+   2          sbit xung1= P2^0;
+   3          sbit xung2= P2^1;
+   4          
+   5          void ngatT0(void) interrupt 1
+   6          {
+   7   1       TR0=0;
+   8   1       TH0=-10000/256;
+   9   1       TL0=-10000%256;
+  10   1       TR0=1;
+  11   1       xung2=~xung2;
+  12   1      }
+  13          void ngatT1(void) interrupt 3
+  14          {
+  15   1              xung1=~xung1;
+  16   1      }
+  17          void main(void)
+  18          {
+  19   1              TMOD = 0x21;
+  20   1              TH1= TL1=-25;
+  21   1              TR1=1;
+  22   1      
+  23   1              IE=0x8A;
+  24   1              IP=0;
+  25   1              TF0=1;
+  26   1              while(1);
+  27   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     37    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

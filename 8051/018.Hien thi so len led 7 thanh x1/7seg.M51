@@ -1,0 +1,95 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        03/14/2013  07:29:00  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+F:\KEIL\C51\BIN\BL51.EXE 7seg.obj TO 7seg RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  7seg.obj (7SEG)
+  F:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+  F:\KEIL\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  7seg (7SEG)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     000AH     UNIT         ?DT?7SEG
+            IDATA   0012H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     008CH     UNIT         ?C_C51STARTUP
+            CODE    008FH     0020H     UNIT         ?PR?_DELAY_MS?7SEG
+            CODE    00AFH     001EH     UNIT         ?PR?MAIN?7SEG
+            CODE    00CDH     000DH     UNIT         ?C_INITSEG
+
+
+
+OVERLAY MAP OF MODULE:   7seg (7SEG)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?7SEG
+  +--> ?C_INITSEG
+
+?PR?MAIN?7SEG
+  +--> ?PR?_DELAY_MS?7SEG
+
+
+
+SYMBOL TABLE OF MODULE:  7seg (7SEG)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        7SEG
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:00A0H         PUBLIC        P2
+  C:00AFH         PUBLIC        main
+  C:008FH         PUBLIC        _delay_ms
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/14/2013  07:29:00  PAGE 2
+
+
+  D:0008H         PUBLIC        seg7
+  -------         PROC          _DELAY_MS
+  D:0006H         SYMBOL        ms
+  -------         DO            
+  D:0004H         SYMBOL        x
+  D:0002H         SYMBOL        y
+  -------         ENDDO         
+  C:008FH         LINE#         2
+  C:008FH         LINE#         3
+  C:008FH         LINE#         5
+  C:0099H         LINE#         6
+  C:00AEH         LINE#         7
+  -------         ENDPROC       _DELAY_MS
+  -------         PROC          MAIN
+  -------         DO            
+  D:0082H         SYMBOL        i
+  -------         ENDDO         
+  C:00AFH         LINE#         10
+  C:00AFH         LINE#         11
+  C:00AFH         LINE#         13
+  C:00AFH         LINE#         14
+  C:00AFH         LINE#         15
+  C:00B2H         LINE#         16
+  C:00B2H         LINE#         17
+  C:00BBH         LINE#         18
+  C:00C2H         LINE#         19
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        7SEG
+
+Program Size: data=19.0 xdata=0 code=218
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

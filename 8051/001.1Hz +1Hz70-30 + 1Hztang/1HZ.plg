@@ -1,0 +1,15 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+E:\ELECTRONIC\CodeVDK\1Hz\1HZ.uvproj
+Project File Date:  03/18/2013
+
+<h2>Output:</h2>
+Build target 'Target 1'
+compiling 1hz.c...
+linking...
+Program Size: data=11.0 xdata=0 code=55
+creating hex file from "1HZ"...
+"1HZ" - 0 Error(s), 0 Warning(s).

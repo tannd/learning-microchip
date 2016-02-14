@@ -1,0 +1,75 @@
+C51 COMPILER V9.01   7SEGX2                                                                05/05/2015 21:28:08 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE 7SEGX2
+OBJECT MODULE PLACED IN 7segx2.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE 7segx2.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include <REGX52.H>
+   2          sbit led1 = P3^0;
+   3          sbit led2 = P3^1;
+   4          void delay_ms(unsigned int ms)
+   5          {
+   6   1              unsigned int x,y;
+   7   1              for(x=0;x<ms;x++)
+   8   1              for(y=0;y<=125;y++);
+   9   1      }
+  10          void delay_us(int time)
+  11          {
+  12   1              while(time--);
+  13   1      }
+  14          unsigned char seg7[]={0xC0,0xF9,0xA4,0xB0,0x99,0x92,0x82,0xF8,0x80,0x90};
+  15          void sang(int n)
+  16          {
+  17   1              int c,dv,i;
+  18   1              c=n/10;
+  19   1              dv=n%10;
+  20   1              for(i=0;i<50;i++)
+  21   1      {
+  22   2                      P2=seg7[c];
+  23   2                      led1=1;led2=0;
+  24   2                      delay_us(100);
+  25   2      
+  26   2                      P2=0xff;
+  27   2                      delay_us(100);
+  28   2      
+  29   2                      P2=seg7[dv];
+  30   2                      led2=1;led1=0;
+  31   2                      delay_us(100);
+  32   2      
+  33   2                      P2=0xff;
+  34   2                      delay_us(100);
+  35   2      }
+  36   1      
+  37   1      }
+  38          
+  39          
+  40          void main()
+  41          {
+  42   1              int a;
+  43   1              while(1)
+  44   1              {
+  45   2                       for(a=0;a<99;a++)
+  46   2                       {
+  47   3                                      sang(a);
+  48   3                       }
+  49   2              }
+  50   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    162    ----
+   CONSTANT SIZE    =   ----    ----
+C51 COMPILER V9.01   7SEGX2                                                                05/05/2015 21:28:08 PAGE 2   
+
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     10       4
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

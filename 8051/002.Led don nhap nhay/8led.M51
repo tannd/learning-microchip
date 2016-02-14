@@ -1,0 +1,446 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        05/02/2013  13:20:12  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+F:\KEIL\C51\BIN\BL51.EXE 8led.obj TO 8led
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  8led.obj (8LED)
+  F:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+  F:\KEIL\C51\LIB\C51S.LIB (?C?COPY)
+
+
+LINK MAP OF MODULE:  8led (8LED)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0024H     UNIT         _DATA_GROUP_
+            DATA    002CH     0004H     UNIT         ?DT?8LED
+            IDATA   0030H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     00F6H     UNIT         ?C?LIB_CODE
+            CODE    00F9H     005FH     UNIT         ?CO?8LED
+            CODE    0158H     0034H     UNIT         ?PR?SANG_THUAN2?8LED
+            CODE    018CH     0034H     UNIT         ?PR?SANG_NGHICH2?8LED
+            CODE    01C0H     0032H     UNIT         ?PR?MAIN?8LED
+            CODE    01F2H     002FH     UNIT         ?PR?SANG_THUAN1?8LED
+            CODE    0221H     002FH     UNIT         ?PR?SANG_NGHICH1?8LED
+            CODE    0250H     002FH     UNIT         ?PR?QUET_LUU_SANG1?8LED
+            CODE    027FH     002FH     UNIT         ?PR?GIUA_CHAY_RA?8LED
+            CODE    02AEH     002FH     UNIT         ?PR?GIUA_CHAY_RA_LUU?8LED
+            CODE    02DDH     002FH     UNIT         ?PR?HAI_DAU_CHAY_VAO?8LED
+            CODE    030CH     002FH     UNIT         ?PR?HAI_DAU_CHAY_VAO_LUU?8LED
+            CODE    033BH     0026H     UNIT         ?PR?NHAP_NHAY_5_LAN?8LED
+            CODE    0361H     0024H     UNIT         ?PR?MOT_LED_DUOI_THUAN1?8LED
+            CODE    0385H     0024H     UNIT         ?PR?MOT_LED_DUOI_THUAN2?8LED
+            CODE    03A9H     0024H     UNIT         ?PR?HAI_LED_DUOI_NHAU1?8LED
+            CODE    03CDH     0024H     UNIT         ?PR?HAI_LED_DUOI_NHAU2?8LED
+            CODE    03F1H     0024H     UNIT         ?PR?DICH_BIT?8LED
+            CODE    0415H     0023H     UNIT         ?PR?_DELAY?8LED
+            CODE    0438H     0023H     UNIT         ?PR?CHUYEN_NHANH?8LED
+            CODE    045BH     000CH     UNIT         ?C_C51STARTUP
+
+
+
+OVERLAY MAP OF MODULE:   8led (8LED)
+
+
+SEGMENT                                 DATA_GROUP 
+  +--> CALLED SEGMENT                 START    LENGTH
+-----------------------------------------------------
+?C_C51STARTUP                         -----    -----
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/02/2013  13:20:12  PAGE 2
+
+
+  +--> ?PR?MAIN?8LED
+
+?PR?MAIN?8LED                         -----    -----
+  +--> ?PR?SANG_THUAN1?8LED
+  +--> ?PR?SANG_THUAN2?8LED
+  +--> ?PR?SANG_NGHICH1?8LED
+  +--> ?PR?SANG_NGHICH2?8LED
+  +--> ?PR?NHAP_NHAY_5_LAN?8LED
+  +--> ?PR?MOT_LED_DUOI_THUAN1?8LED
+  +--> ?PR?MOT_LED_DUOI_THUAN2?8LED
+  +--> ?PR?HAI_LED_DUOI_NHAU1?8LED
+  +--> ?PR?HAI_LED_DUOI_NHAU2?8LED
+  +--> ?PR?QUET_LUU_SANG1?8LED
+  +--> ?PR?DICH_BIT?8LED
+  +--> ?PR?CHUYEN_NHANH?8LED
+  +--> ?PR?GIUA_CHAY_RA?8LED
+  +--> ?PR?GIUA_CHAY_RA_LUU?8LED
+  +--> ?PR?HAI_DAU_CHAY_VAO?8LED
+  +--> ?PR?HAI_DAU_CHAY_VAO_LUU?8LED
+
+?PR?SANG_THUAN1?8LED                  -----    -----
+  +--> ?PR?_DELAY?8LED
+
+?PR?SANG_THUAN2?8LED                  0008H    0009H
+  +--> ?CO?8LED
+  +--> ?PR?_DELAY?8LED
+
+?PR?SANG_NGHICH1?8LED                 0008H    0009H
+  +--> ?CO?8LED
+  +--> ?PR?_DELAY?8LED
+
+?PR?SANG_NGHICH2?8LED                 0008H    0009H
+  +--> ?CO?8LED
+  +--> ?PR?_DELAY?8LED
+
+?PR?NHAP_NHAY_5_LAN?8LED              -----    -----
+  +--> ?PR?_DELAY?8LED
+
+?PR?MOT_LED_DUOI_THUAN1?8LED          -----    -----
+  +--> ?PR?_DELAY?8LED
+
+?PR?MOT_LED_DUOI_THUAN2?8LED          -----    -----
+  +--> ?PR?_DELAY?8LED
+
+?PR?HAI_LED_DUOI_NHAU1?8LED           -----    -----
+  +--> ?PR?_DELAY?8LED
+
+?PR?HAI_LED_DUOI_NHAU2?8LED           -----    -----
+  +--> ?PR?_DELAY?8LED
+
+?PR?QUET_LUU_SANG1?8LED               0008H    0024H
+  +--> ?CO?8LED
+  +--> ?PR?_DELAY?8LED
+
+?PR?DICH_BIT?8LED                     -----    -----
+  +--> ?PR?_DELAY?8LED
+
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/02/2013  13:20:12  PAGE 3
+
+
+?PR?CHUYEN_NHANH?8LED                 -----    -----
+  +--> ?PR?_DELAY?8LED
+
+?PR?GIUA_CHAY_RA?8LED                 0008H    0005H
+  +--> ?CO?8LED
+  +--> ?PR?_DELAY?8LED
+
+?PR?GIUA_CHAY_RA_LUU?8LED             0008H    000BH
+  +--> ?CO?8LED
+  +--> ?PR?_DELAY?8LED
+
+?PR?HAI_DAU_CHAY_VAO?8LED             0008H    0005H
+  +--> ?CO?8LED
+  +--> ?PR?_DELAY?8LED
+
+?PR?HAI_DAU_CHAY_VAO_LUU?8LED         0008H    000BH
+  +--> ?CO?8LED
+  +--> ?PR?_DELAY?8LED
+
+
+
+SYMBOL TABLE OF MODULE:  8led (8LED)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        8LED
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:02DDH         PUBLIC        hai_dau_chay_vao
+  C:0438H         PUBLIC        chuyen_nhanh
+  D:00A0H         PUBLIC        P2
+  C:041FH         PUBLIC        _delay
+  C:02AEH         PUBLIC        giua_chay_ra_luu
+  C:03A9H         PUBLIC        hai_led_duoi_nhau1
+  C:03CDH         PUBLIC        hai_led_duoi_nhau2
+  C:01C0H         PUBLIC        main
+  C:0361H         PUBLIC        mot_led_duoi_thuan1
+  C:0221H         PUBLIC        sang_nghich1
+  C:0385H         PUBLIC        mot_led_duoi_thuan2
+  C:018CH         PUBLIC        sang_nghich2
+  C:0250H         PUBLIC        quet_luu_sang1
+  C:030CH         PUBLIC        hai_dau_chay_vao_luu
+  C:03F1H         PUBLIC        dich_bit
+  C:00F9H         SYMBOL        _?ix1000
+  C:0102H         SYMBOL        _?ix1001
+  C:010BH         SYMBOL        _?ix1002
+  C:0114H         SYMBOL        _?ix1003
+  C:0138H         SYMBOL        _?ix1004
+  C:013DH         SYMBOL        _?ix1005
+  C:0148H         SYMBOL        _?ix1006
+  C:014DH         SYMBOL        _?ix1007
+  C:01F2H         PUBLIC        sang_thuan1
+  C:0158H         PUBLIC        sang_thuan2
+  C:027FH         PUBLIC        giua_chay_ra
+  D:002CH         PUBLIC        i
+  D:002EH         PUBLIC        j
+  C:033BH         PUBLIC        nhap_nhay_5_lan
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/02/2013  13:20:12  PAGE 4
+
+
+  C:0415H         SYMBOL        L?0090
+  C:0419H         SYMBOL        L?0091
+  C:041BH         SYMBOL        L?0092
+  -------         PROC          L?0089
+  -------         ENDPROC       L?0089
+  C:0415H         SYMBOL        L?0090
+  C:0419H         SYMBOL        L?0091
+  C:041BH         SYMBOL        L?0092
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        ms
+  C:041FH         LINE#         3
+  C:041FH         LINE#         4
+  C:041FH         LINE#         5
+  C:0437H         LINE#         6
+  -------         ENDPROC       _DELAY
+  -------         PROC          SANG_THUAN1
+  -------         DO            
+  D:0004H         SYMBOL        x
+  -------         ENDDO         
+  C:01F2H         LINE#         7
+  C:01F2H         LINE#         8
+  C:01F2H         LINE#         10
+  C:01F6H         LINE#         11
+  C:01FBH         LINE#         12
+  C:01FBH         LINE#         14
+  C:01FDH         LINE#         15
+  C:0208H         LINE#         16
+  C:020FH         LINE#         17
+  C:0220H         LINE#         18
+  -------         ENDPROC       SANG_THUAN1
+  -------         PROC          SANG_THUAN2
+  -------         DO            
+  D:0008H         SYMBOL        sang_thuan2
+  -------         ENDDO         
+  C:0158H         LINE#         19
+  C:0158H         LINE#         20
+  C:0158H         LINE#         21
+  C:016BH         LINE#         22
+  C:0170H         LINE#         23
+  C:0170H         LINE#         24
+  C:0177H         LINE#         25
+  C:017AH         LINE#         26
+  C:018BH         LINE#         27
+  -------         ENDPROC       SANG_THUAN2
+  -------         PROC          SANG_NGHICH1
+  -------         DO            
+  D:0008H         SYMBOL        sang_nghich1
+  -------         ENDDO         
+  C:0221H         LINE#         28
+  C:0221H         LINE#         29
+  C:0221H         LINE#         30
+  C:0234H         LINE#         31
+  C:0239H         LINE#         32
+  C:0239H         LINE#         33
+  C:023BH         LINE#         34
+  C:023EH         LINE#         35
+  C:024FH         LINE#         36
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/02/2013  13:20:12  PAGE 5
+
+
+  -------         ENDPROC       SANG_NGHICH1
+  -------         PROC          SANG_NGHICH2
+  -------         DO            
+  D:0008H         SYMBOL        sang_nghich2
+  -------         ENDDO         
+  C:018CH         LINE#         37
+  C:018CH         LINE#         38
+  C:018CH         LINE#         39
+  C:019FH         LINE#         40
+  C:01A4H         LINE#         41
+  C:01A4H         LINE#         42
+  C:01ABH         LINE#         43
+  C:01AEH         LINE#         44
+  C:01BFH         LINE#         45
+  -------         ENDPROC       SANG_NGHICH2
+  -------         PROC          MOT_LED_DUOI_THUAN1
+  C:0361H         LINE#         46
+  C:0361H         LINE#         47
+  C:0361H         LINE#         48
+  C:0367H         LINE#         49
+  C:036CH         LINE#         50
+  C:036CH         LINE#         51
+  C:0370H         LINE#         52
+  C:0373H         LINE#         53
+  C:0384H         LINE#         54
+  -------         ENDPROC       MOT_LED_DUOI_THUAN1
+  -------         PROC          MOT_LED_DUOI_THUAN2
+  C:0385H         LINE#         55
+  C:0385H         LINE#         56
+  C:0385H         LINE#         57
+  C:038BH         LINE#         58
+  C:0390H         LINE#         59
+  C:0390H         LINE#         60
+  C:0394H         LINE#         61
+  C:0397H         LINE#         62
+  C:03A8H         LINE#         63
+  -------         ENDPROC       MOT_LED_DUOI_THUAN2
+  -------         PROC          HAI_LED_DUOI_NHAU1
+  C:03A9H         LINE#         64
+  C:03A9H         LINE#         65
+  C:03A9H         LINE#         66
+  C:03AFH         LINE#         67
+  C:03B4H         LINE#         68
+  C:03B4H         LINE#         69
+  C:03B8H         LINE#         70
+  C:03BBH         LINE#         71
+  C:03CCH         LINE#         72
+  -------         ENDPROC       HAI_LED_DUOI_NHAU1
+  -------         PROC          HAI_LED_DUOI_NHAU2
+  C:03CDH         LINE#         73
+  C:03CDH         LINE#         74
+  C:03CDH         LINE#         76
+  C:03D3H         LINE#         77
+  C:03D8H         LINE#         78
+  C:03D8H         LINE#         79
+  C:03DCH         LINE#         80
+  C:03DFH         LINE#         81
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/02/2013  13:20:12  PAGE 6
+
+
+  C:03F0H         LINE#         82
+  -------         ENDPROC       HAI_LED_DUOI_NHAU2
+  -------         PROC          NHAP_NHAY_5_LAN
+  C:033BH         LINE#         83
+  C:033BH         LINE#         84
+  C:033BH         LINE#         85
+  C:0340H         LINE#         86
+  C:0340H         LINE#         87
+  C:0343H         LINE#         88
+  C:0346H         LINE#         89
+  C:0349H         LINE#         90
+  C:034CH         LINE#         91
+  C:034FH         LINE#         92
+  C:0360H         LINE#         93
+  -------         ENDPROC       NHAP_NHAY_5_LAN
+  -------         PROC          QUET_LUU_SANG1
+  -------         DO            
+  D:0008H         SYMBOL        quet_luu_sang1
+  -------         ENDDO         
+  C:0250H         LINE#         94
+  C:0250H         LINE#         95
+  C:0250H         LINE#         96
+  C:0263H         LINE#         103
+  C:0268H         LINE#         104
+  C:0268H         LINE#         105
+  C:026AH         LINE#         106
+  C:026DH         LINE#         107
+  C:027EH         LINE#         108
+  -------         ENDPROC       QUET_LUU_SANG1
+  -------         PROC          DICH_BIT
+  C:03F1H         LINE#         109
+  C:03F1H         LINE#         110
+  C:03F1H         LINE#         111
+  C:03F7H         LINE#         112
+  C:03FCH         LINE#         113
+  C:03FCH         LINE#         114
+  C:0403H         LINE#         115
+  C:0414H         LINE#         116
+  -------         ENDPROC       DICH_BIT
+  -------         PROC          CHUYEN_NHANH
+  C:0438H         LINE#         117
+  C:0438H         LINE#         118
+  C:0438H         LINE#         119
+  C:043DH         LINE#         120
+  C:043DH         LINE#         121
+  C:0443H         LINE#         122
+  C:0449H         LINE#         123
+  C:045AH         LINE#         124
+  -------         ENDPROC       CHUYEN_NHANH
+  -------         PROC          GIUA_CHAY_RA
+  -------         DO            
+  D:0008H         SYMBOL        giua_chay_ra
+  -------         ENDDO         
+  C:027FH         LINE#         125
+  C:027FH         LINE#         126
+  C:027FH         LINE#         127
+  C:0292H         LINE#         128
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/02/2013  13:20:12  PAGE 7
+
+
+  C:0297H         LINE#         129
+  C:0297H         LINE#         130
+  C:0299H         LINE#         131
+  C:029CH         LINE#         132
+  C:02ADH         LINE#         133
+  -------         ENDPROC       GIUA_CHAY_RA
+  -------         PROC          GIUA_CHAY_RA_LUU
+  -------         DO            
+  D:0008H         SYMBOL        giua_chay_ra_luu
+  -------         ENDDO         
+  C:02AEH         LINE#         134
+  C:02AEH         LINE#         135
+  C:02AEH         LINE#         136
+  C:02C1H         LINE#         137
+  C:02C6H         LINE#         138
+  C:02C6H         LINE#         139
+  C:02C8H         LINE#         140
+  C:02CBH         LINE#         141
+  C:02DCH         LINE#         142
+  -------         ENDPROC       GIUA_CHAY_RA_LUU
+  -------         PROC          HAI_DAU_CHAY_VAO
+  -------         DO            
+  D:0008H         SYMBOL        hai_dau_chay_vao
+  -------         ENDDO         
+  C:02DDH         LINE#         143
+  C:02DDH         LINE#         144
+  C:02DDH         LINE#         145
+  C:02F0H         LINE#         146
+  C:02F5H         LINE#         147
+  C:02F5H         LINE#         148
+  C:02F7H         LINE#         149
+  C:02FAH         LINE#         150
+  C:030BH         LINE#         151
+  -------         ENDPROC       HAI_DAU_CHAY_VAO
+  -------         PROC          HAI_DAU_CHAY_VAO_LUU
+  -------         DO            
+  D:0008H         SYMBOL        hai_dau_chay_vao_luu
+  -------         ENDDO         
+  C:030CH         LINE#         152
+  C:030CH         LINE#         153
+  C:030CH         LINE#         154
+  C:031FH         LINE#         155
+  C:0324H         LINE#         156
+  C:0324H         LINE#         157
+  C:0326H         LINE#         158
+  C:0329H         LINE#         159
+  C:033AH         LINE#         160
+  -------         ENDPROC       HAI_DAU_CHAY_VAO_LUU
+  -------         PROC          MAIN
+  C:01C0H         LINE#         161
+  C:01C0H         LINE#         162
+  C:01C0H         LINE#         163
+  C:01C0H         LINE#         164
+  C:01C0H         LINE#         165
+  C:01C3H         LINE#         166
+  C:01C6H         LINE#         167
+  C:01C9H         LINE#         168
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/02/2013  13:20:12  PAGE 8
+
+
+  C:01CCH         LINE#         169
+  C:01CFH         LINE#         170
+  C:01D2H         LINE#         171
+  C:01D5H         LINE#         172
+  C:01D8H         LINE#         173
+  C:01DBH         LINE#         174
+  C:01DEH         LINE#         175
+  C:01E1H         LINE#         176
+  C:01E4H         LINE#         177
+  C:01E7H         LINE#         178
+  C:01EAH         LINE#         179
+  C:01EDH         LINE#         180
+  C:01F0H         LINE#         182
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        8LED
+
+  -------         MODULE        ?C?COPY
+  C:00D3H         PUBLIC        ?C?COPY
+  -------         ENDMOD        ?C?COPY
+
+Program Size: data=49.0 xdata=0 code=1127
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

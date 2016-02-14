@@ -1,0 +1,157 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        05/05/2015  21:28:08  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE 7segx2.obj TO 7segx2 RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  7segx2.obj (7SEGX2)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL\C51\LIB\C51S.LIB (?C?SIDIV)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_INIT)
+  C:\KEIL\C51\LIB\C51S.LIB (?C?UIDIV)
+
+
+LINK MAP OF MODULE:  7segx2 (7SEGX2)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     000AH     UNIT         ?DT?7SEGX2
+            DATA    0012H     0004H     UNIT         _DATA_GROUP_
+            IDATA   0016H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     008CH     UNIT         ?C_C51STARTUP
+            CODE    008FH     008BH     UNIT         ?C?LIB_CODE
+            CODE    011AH     0048H     UNIT         ?PR?_SANG?7SEGX2
+            CODE    0162H     0021H     UNIT         ?PR?MAIN?7SEGX2
+            CODE    0183H     0020H     UNIT         ?PR?_DELAY_MS?7SEGX2
+            CODE    01A3H     0019H     UNIT         ?PR?_DELAY_US?7SEGX2
+            CODE    01BCH     000DH     UNIT         ?C_INITSEG
+
+
+
+OVERLAY MAP OF MODULE:   7segx2 (7SEGX2)
+
+
+SEGMENT                          DATA_GROUP 
+  +--> CALLED SEGMENT          START    LENGTH
+----------------------------------------------
+?C_C51STARTUP                  -----    -----
+  +--> ?PR?MAIN?7SEGX2
+  +--> ?C_INITSEG
+
+?PR?MAIN?7SEGX2                0012H    0002H
+  +--> ?PR?_SANG?7SEGX2
+
+?PR?_SANG?7SEGX2               0014H    0002H
+  +--> ?PR?_DELAY_US?7SEGX2
+
+
+
+SYMBOL TABLE OF MODULE:  7segx2 (7SEGX2)
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/05/2015  21:28:08  PAGE 2
+
+
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        7SEGX2
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  C:0162H         PUBLIC        main
+  C:011AH         PUBLIC        _sang
+  C:0183H         PUBLIC        _delay_ms
+  C:01B1H         PUBLIC        _delay_us
+  B:00B0H.0       PUBLIC        led1
+  B:00B0H.1       PUBLIC        led2
+  D:0008H         PUBLIC        seg7
+  -------         PROC          _DELAY_MS
+  D:0006H         SYMBOL        ms
+  -------         DO            
+  D:0004H         SYMBOL        x
+  D:0002H         SYMBOL        y
+  -------         ENDDO         
+  C:0183H         LINE#         4
+  C:0183H         LINE#         5
+  C:0183H         LINE#         7
+  C:018DH         LINE#         8
+  C:01A2H         LINE#         9
+  -------         ENDPROC       _DELAY_MS
+  -------         PROC          L?0025
+  -------         ENDPROC       L?0025
+  -------         PROC          _DELAY_US
+  D:0006H         SYMBOL        time
+  C:01B1H         LINE#         10
+  C:01B1H         LINE#         11
+  C:01B1H         LINE#         12
+  C:01BBH         LINE#         13
+  -------         ENDPROC       _DELAY_US
+  -------         PROC          _SANG
+  D:0002H         SYMBOL        n
+  -------         DO            
+  D:0014H         SYMBOL        c
+  D:0002H         SYMBOL        dv
+  D:0082H         SYMBOL        i
+  -------         ENDDO         
+  C:011AH         LINE#         15
+  C:011EH         LINE#         16
+  C:011EH         LINE#         18
+  C:0129H         LINE#         19
+  C:0138H         LINE#         20
+  C:013BH         LINE#         21
+  C:013BH         LINE#         22
+  C:0143H         LINE#         23
+  C:0147H         LINE#         24
+  C:0147H         LINE#         26
+  C:0147H         LINE#         27
+  C:014AH         LINE#         29
+  C:0151H         LINE#         30
+  C:0155H         LINE#         31
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/05/2015  21:28:08  PAGE 3
+
+
+  C:0155H         LINE#         33
+  C:0155H         LINE#         34
+  C:0158H         LINE#         35
+  C:0161H         LINE#         37
+  -------         ENDPROC       _SANG
+  -------         PROC          MAIN
+  -------         DO            
+  D:0012H         SYMBOL        a
+  -------         ENDDO         
+  C:0162H         LINE#         40
+  C:0162H         LINE#         41
+  C:0162H         LINE#         43
+  C:0162H         LINE#         44
+  C:0162H         LINE#         45
+  C:0167H         LINE#         46
+  C:0167H         LINE#         47
+  C:016EH         LINE#         48
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        7SEGX2
+
+  -------         MODULE        ?C?SIDIV
+  C:008FH         PUBLIC        ?C?SIDIV
+  -------         ENDMOD        ?C?SIDIV
+
+  -------         MODULE        ?C?UIDIV
+  C:00C5H         PUBLIC        ?C?UIDIV
+  -------         ENDMOD        ?C?UIDIV
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY_MS?7SEGX2
+
+Program Size: data=23.0 xdata=0 code=457
+LINK/LOCATE RUN COMPLETE.  1 WARNING(S),  0 ERROR(S)

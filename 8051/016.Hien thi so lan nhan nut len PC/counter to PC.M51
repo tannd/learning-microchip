@@ -1,0 +1,278 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        06/13/2013  10:37:23  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+E:\KEIL\C51\BIN\BL51.EXE counter to PC.obj TO counter to PC RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL WITH FLOATING POINT ARITHMETIC
+
+
+INPUT MODULES INCLUDED:
+  counter to PC.obj (COUNTER_TO_PC)
+  E:\KEIL\C51\LIB\C51FPS.LIB (?C?FPADD)
+  E:\KEIL\C51\LIB\C51FPS.LIB (?C?FPMUL)
+  E:\KEIL\C51\LIB\C51FPS.LIB (?C?FCAST)
+  E:\KEIL\C51\LIB\C51FPS.LIB (?C?CASTF)
+  E:\KEIL\C51\LIB\C51FPS.LIB (?C?FPGETOPN)
+  E:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+  E:\KEIL\C51\LIB\C51S.LIB (?C?CLDOPTR)
+  E:\KEIL\C51\LIB\C51S.LIB (?C?ULDIV)
+  E:\KEIL\C51\LIB\C51S.LIB (?C?LNEG)
+  E:\KEIL\C51\LIB\C51S.LIB (?C?ULCMP)
+  E:\KEIL\C51\LIB\C51S.LIB (STRLEN)
+  E:\KEIL\C51\LIB\C51S.LIB (?C?CLDPTR)
+
+
+LINK MAP OF MODULE:  counter to PC (COUNTER_TO_PC)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0013H     UNIT         _DATA_GROUP_
+            DATA    001BH     000CH     UNIT         ?DT?_SENDREALNUM?COUNTER_TO_PC
+            DATA    0027H     0005H     UNIT         ?DT?_SENDSTRING?COUNTER_TO_PC
+            IDATA   002CH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     03F0H     UNIT         ?C?LIB_CODE
+            CODE    03F3H     00ABH     UNIT         ?PR?_SENDINTNUM?COUNTER_TO_PC
+            CODE    049EH     006FH     UNIT         ?PR?_SENDREALNUM?COUNTER_TO_PC
+            CODE    050DH     0038H     UNIT         ?PR?_SENDSTRING?COUNTER_TO_PC
+            CODE    0545H     0034H     UNIT         ?PR?MAIN?COUNTER_TO_PC
+            CODE    0579H     0020H     UNIT         ?PR?_DELAY_MS?COUNTER_TO_PC
+            CODE    0599H     0016H     UNIT         ?PR?SETUP?COUNTER_TO_PC
+            CODE    05AFH     0015H     UNIT         ?PR?_STRLEN?STRLEN
+            CODE    05C4H     000CH     UNIT         ?C_C51STARTUP
+            CODE    05D0H     0008H     UNIT         ?PR?_SENDCHAR?COUNTER_TO_PC
+
+
+
+OVERLAY MAP OF MODULE:   counter to PC (COUNTER_TO_PC)
+
+
+SEGMENT                                  DATA_GROUP 
+  +--> CALLED SEGMENT                  START    LENGTH
+------------------------------------------------------
+?C_C51STARTUP                          -----    -----
+BL51 BANKED LINKER/LOCATER V6.22                                                      06/13/2013  10:37:23  PAGE 2
+
+
+  +--> ?PR?MAIN?COUNTER_TO_PC
+
+?PR?MAIN?COUNTER_TO_PC                 0008H    0002H
+  +--> ?PR?SETUP?COUNTER_TO_PC
+  +--> ?PR?_SENDINTNUM?COUNTER_TO_PC
+  +--> ?PR?_DELAY_MS?COUNTER_TO_PC
+  +--> ?PR?_SENDCHAR?COUNTER_TO_PC
+
+?PR?_SENDINTNUM?COUNTER_TO_PC          000AH    0011H
+  +--> ?PR?_STRLEN?STRLEN
+  +--> ?PR?_SENDCHAR?COUNTER_TO_PC
+
+
+
+SYMBOL TABLE OF MODULE:  counter to PC (COUNTER_TO_PC)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        COUNTER_TO_PC
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:00B0H         PUBLIC        P3
+  B:0098H.1       PUBLIC        TI
+  C:049EH         PUBLIC        _sendrealnum
+  C:0545H         PUBLIC        main
+  D:0099H         PUBLIC        SBUF
+  C:0599H         PUBLIC        setup
+  D:0098H         PUBLIC        SCON
+  D:0089H         PUBLIC        TMOD
+  C:050DH         PUBLIC        _sendstring
+  C:03F3H         PUBLIC        _sendintnum
+  D:008CH         PUBLIC        TH0
+  C:05D0H         PUBLIC        _sendchar
+  D:008DH         PUBLIC        TH1
+  D:008AH         PUBLIC        TL0
+  D:008BH         PUBLIC        TL1
+  C:0579H         PUBLIC        _delay_ms
+  B:0088H.4       PUBLIC        TR0
+  B:0088H.6       PUBLIC        TR1
+  B:00B0H.5       PUBLIC        sw
+  -------         PROC          _DELAY_MS
+  D:0006H         SYMBOL        ms
+  -------         DO            
+  D:0004H         SYMBOL        i
+  D:0002H         SYMBOL        j
+  -------         ENDDO         
+  C:0579H         LINE#         7
+  C:0579H         LINE#         8
+  C:0579H         LINE#         10
+  C:0583H         LINE#         11
+  C:0583H         LINE#         12
+  C:0591H         LINE#         13
+  C:0598H         LINE#         14
+  -------         ENDPROC       _DELAY_MS
+  -------         PROC          SETUP
+  C:0599H         LINE#         16
+  C:0599H         LINE#         17
+BL51 BANKED LINKER/LOCATER V6.22                                                      06/13/2013  10:37:23  PAGE 3
+
+
+  C:0599H         LINE#         19
+  C:059CH         LINE#         20
+  C:059FH         LINE#         21
+  C:05A5H         LINE#         22
+  C:05A8H         LINE#         24
+  C:05AAH         LINE#         25
+  C:05ACH         LINE#         26
+  C:05AEH         LINE#         28
+  -------         ENDPROC       SETUP
+  -------         PROC          _SENDCHAR
+  D:0007H         SYMBOL        a
+  C:05D0H         LINE#         29
+  C:05D0H         LINE#         30
+  C:05D0H         LINE#         31
+  C:05D2H         LINE#         32
+  C:05D5H         LINE#         33
+  C:05D7H         LINE#         34
+  -------         ENDPROC       _SENDCHAR
+  -------         PROC          _SENDSTRING
+  D:0027H         SYMBOL        a
+  -------         DO            
+  D:0004H         SYMBOL        i
+  D:002AH         SYMBOL        n
+  -------         ENDDO         
+  C:050DH         LINE#         36
+  C:0513H         LINE#         37
+  C:0513H         LINE#         39
+  C:051AH         LINE#         40
+  C:052CH         LINE#         41
+  C:052CH         LINE#         42
+  C:053DH         LINE#         43
+  C:0544H         LINE#         44
+  -------         ENDPROC       _SENDSTRING
+  -------         PROC          _SENDINTNUM
+  D:000AH         SYMBOL        n
+  -------         DO            
+  D:000EH         SYMBOL        a
+  D:0019H         SYMBOL        i
+  -------         ENDDO         
+  C:03F3H         LINE#         45
+  C:03FBH         LINE#         46
+  C:03FBH         LINE#         47
+  C:0411H         LINE#         48
+  C:0411H         LINE#         51
+  C:0429H         LINE#         52
+  C:0429H         LINE#         53
+  C:0445H         LINE#         54
+  C:045EH         LINE#         55
+  C:0468H         LINE#         56
+  C:046FH         LINE#         57
+  C:0484H         LINE#         58
+  C:0484H         LINE#         59
+  C:048EH         LINE#         61
+  C:0498H         LINE#         62
+  C:0498H         LINE#         63
+  C:049DH         LINE#         64
+  -------         ENDPROC       _SENDINTNUM
+BL51 BANKED LINKER/LOCATER V6.22                                                      06/13/2013  10:37:23  PAGE 4
+
+
+  -------         PROC          _SENDREALNUM
+  D:001BH         SYMBOL        n
+  -------         DO            
+  D:001FH         SYMBOL        a
+  D:0023H         SYMBOL        b
+  -------         ENDDO         
+  C:049EH         LINE#         66
+  C:04A6H         LINE#         67
+  C:04A6H         LINE#         68
+  C:04B1H         LINE#         69
+  C:04DEH         LINE#         70
+  C:04E9H         LINE#         71
+  C:04FCH         LINE#         72
+  C:04FCH         LINE#         73
+  C:0501H         LINE#         74
+  C:050CH         LINE#         75
+  C:050CH         LINE#         76
+  -------         ENDPROC       _SENDREALNUM
+  -------         PROC          MAIN
+  -------         DO            
+  D:0008H         SYMBOL        count
+  -------         ENDDO         
+  C:0545H         LINE#         78
+  C:0545H         LINE#         79
+  C:0545H         LINE#         81
+  C:0548H         LINE#         82
+  C:0548H         LINE#         83
+  C:0548H         LINE#         86
+  C:054FH         LINE#         87
+  C:055AH         LINE#         88
+  C:055AH         LINE#         89
+  C:055FH         LINE#         90
+  C:0561H         LINE#         92
+  C:0561H         LINE#         93
+  C:056BH         LINE#         94
+  C:0572H         LINE#         95
+  C:0577H         LINE#         97
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        COUNTER_TO_PC
+
+  -------         MODULE        ?C?FPADD
+  C:000AH         PUBLIC        ?C?FPADD
+  C:0006H         PUBLIC        ?C?FPSUB
+  -------         ENDMOD        ?C?FPADD
+
+  -------         MODULE        ?C?FPMUL
+  C:00FBH         PUBLIC        ?C?FPMUL
+  -------         ENDMOD        ?C?FPMUL
+
+  -------         MODULE        ?C?FCAST
+  C:020BH         PUBLIC        ?C?FCASTC
+  C:0206H         PUBLIC        ?C?FCASTI
+  C:0201H         PUBLIC        ?C?FCASTL
+  -------         ENDMOD        ?C?FCAST
+
+  -------         MODULE        ?C?CASTF
+  C:023FH         PUBLIC        ?C?CASTF
+BL51 BANKED LINKER/LOCATER V6.22                                                      06/13/2013  10:37:23  PAGE 5
+
+
+  -------         ENDMOD        ?C?CASTF
+
+  -------         MODULE        ?C?CLDOPTR
+  C:02C0H         PUBLIC        ?C?CLDOPTR
+  -------         ENDMOD        ?C?CLDOPTR
+
+  -------         MODULE        ?C?ULDIV
+  C:0329H         PUBLIC        ?C?ULDIV
+  -------         ENDMOD        ?C?ULDIV
+
+  -------         MODULE        ?C?LNEG
+  C:03BBH         PUBLIC        ?C?LNEG
+  -------         ENDMOD        ?C?LNEG
+
+  -------         MODULE        ?C?ULCMP
+  C:03C9H         PUBLIC        ?C?ULCMP
+  -------         ENDMOD        ?C?ULCMP
+
+  -------         MODULE        STRLEN
+  C:05AFH         PUBLIC        _STRLEN
+  -------         ENDMOD        STRLEN
+
+  -------         MODULE        ?C?CLDPTR
+  C:03DAH         PUBLIC        ?C?CLDPTR
+  -------         ENDMOD        ?C?CLDPTR
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SENDSTRING?COUNTER_TO_PC
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SENDREALNUM?COUNTER_TO_PC
+
+Program Size: data=45.0 xdata=0 code=1496
+LINK/LOCATE RUN COMPLETE.  2 WARNING(S),  0 ERROR(S)

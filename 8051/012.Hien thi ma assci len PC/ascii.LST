@@ -1,0 +1,61 @@
+C51 COMPILER V9.01   ASCII                                                                 03/28/2013 07:47:22 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE ASCII
+OBJECT MODULE PLACED IN ascii.OBJ
+COMPILER INVOKED BY: F:\Keil\C51\BIN\C51.EXE ascii.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include <REGX52.H>
+   2          #include <stdio.h>
+   3          void delay_ms(unsigned int  ms)
+   4          {
+   5   1              int i,j;
+   6   1              for(i=0;i<ms;i++)
+   7   1              {
+   8   2                      for(j=0;j<121;j++);
+   9   2              }
+  10   1      }
+  11          
+  12          int c;
+  13          void main()
+  14          {
+  15   1              SCON=0x52;
+  16   1              TMOD=0x20;
+  17   1              TH1=TL1=-3;
+  18   1              TR1=1;
+  19   1      //      while(1)
+  20   1              {
+  21   2                              
+  22   2                              /*
+  23   2                              while(!TI);
+  24   2                              TI=0;
+  25   2                              SBUF=65;
+  26   2                              */
+  27   2                              for (c=32;c<127;c++)
+  28   2                              {
+  29   3                               
+  30   3                                      putchar(c);
+  31   3                                       if(c%10==0 && c!=0) putchar(0x0D);
+  32   3                                      putchar(32);
+  33   3                              delay_ms(10);
+  34   3                              }
+  35   2                              printf("hien thi bang ma ascii %2.2f",4.5);
+  36   2                              while(1);
+  37   2              }
+  38   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    136    ----
+   CONSTANT SIZE    =     29    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      2    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

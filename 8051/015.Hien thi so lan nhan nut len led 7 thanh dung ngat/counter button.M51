@@ -1,0 +1,150 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        04/04/2013  07:51:56  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+F:\KEIL\C51\BIN\BL51.EXE counter button.obj TO counter button RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  counter button.obj (COUNTER_BUTTON)
+  F:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+  F:\KEIL\C51\LIB\C51S.LIB (?C?SIDIV)
+  F:\KEIL\C51\LIB\C51S.LIB (?C_INIT)
+  F:\KEIL\C51\LIB\C51S.LIB (?C?UIDIV)
+
+
+LINK MAP OF MODULE:  counter button (COUNTER_BUTTON)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0012H     UNIT         ?DT?COUNTER_BUTTON
+            IDATA   001AH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0003H     ABSOLUTE     
+            CODE    0006H     008CH     UNIT         ?C_C51STARTUP
+            CODE    0092H     008BH     UNIT         ?C?LIB_CODE
+            CODE    011DH     004BH     UNIT         ?PR?SANG?COUNTER_BUTTON
+            CODE    0168H     0026H     UNIT         ?PR?NGAT?COUNTER_BUTTON
+            CODE    018EH     0019H     UNIT         ?PR?_DELAY?COUNTER_BUTTON
+            CODE    01A7H     000DH     UNIT         ?C_INITSEG
+            CODE    01B4H     000CH     UNIT         ?PR?MAIN?COUNTER_BUTTON
+
+
+
+OVERLAY MAP OF MODULE:   counter button (COUNTER_BUTTON)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?COUNTER_BUTTON
+  +--> ?C_INITSEG
+
+?PR?MAIN?COUNTER_BUTTON
+  +--> ?PR?SANG?COUNTER_BUTTON
+
+?PR?SANG?COUNTER_BUTTON
+  +--> ?PR?_DELAY?COUNTER_BUTTON
+
+
+
+SYMBOL TABLE OF MODULE:  counter button (COUNTER_BUTTON)
+BL51 BANKED LINKER/LOCATER V6.22                                                      04/04/2013  07:51:56  PAGE 2
+
+
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        COUNTER_BUTTON
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  B:00A8H.7       PUBLIC        EA
+  D:00A8H         PUBLIC        IE
+  C:019CH         PUBLIC        _delay
+  D:0008H         PUBLIC        l1
+  D:000AH         PUBLIC        l2
+  C:01B4H         PUBLIC        main
+  C:011DH         PUBLIC        sang
+  C:0168H         PUBLIC        ngat
+  B:0088H.0       PUBLIC        IT0
+  D:000CH         PUBLIC        num
+  B:0090H.0       PUBLIC        led1
+  D:000EH         PUBLIC        i
+  B:0090H.1       PUBLIC        led2
+  D:0010H         PUBLIC        m
+  -------         PROC          L?0017
+  -------         ENDPROC       L?0017
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        time
+  C:019CH         LINE#         9
+  C:019CH         LINE#         10
+  C:019CH         LINE#         11
+  C:01A6H         LINE#         12
+  -------         ENDPROC       _DELAY
+  -------         PROC          SANG
+  -------         DO            
+  D:0002H         SYMBOL        k
+  -------         ENDDO         
+  C:011DH         LINE#         13
+  C:011DH         LINE#         14
+  C:011DH         LINE#         17
+  C:012CH         LINE#         18
+  C:013BH         LINE#         19
+  C:013EH         LINE#         20
+  C:013EH         LINE#         21
+  C:0146H         LINE#         22
+  C:014AH         LINE#         23
+  C:014AH         LINE#         25
+  C:014AH         LINE#         26
+  C:014DH         LINE#         28
+  C:0155H         LINE#         29
+  C:0159H         LINE#         30
+  C:0159H         LINE#         32
+  C:0159H         LINE#         33
+  C:015CH         LINE#         34
+  C:0167H         LINE#         35
+  -------         ENDPROC       SANG
+  -------         PROC          NGAT
+  C:0168H         LINE#         36
+  C:016CH         LINE#         38
+BL51 BANKED LINKER/LOCATER V6.22                                                      04/04/2013  07:51:56  PAGE 3
+
+
+  C:0181H         LINE#         39
+  C:0189H         LINE#         40
+  -------         ENDPROC       NGAT
+  -------         PROC          MAIN
+  C:01B4H         LINE#         41
+  C:01B4H         LINE#         42
+  C:01B4H         LINE#         44
+  C:01B6H         LINE#         45
+  C:01B8H         LINE#         46
+  C:01BBH         LINE#         47
+  C:01BBH         LINE#         48
+  C:01BBH         LINE#         49
+  C:01BEH         LINE#         51
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        COUNTER_BUTTON
+
+  -------         MODULE        ?C?SIDIV
+  C:0092H         PUBLIC        ?C?SIDIV
+  -------         ENDMOD        ?C?SIDIV
+
+  -------         MODULE        ?C?UIDIV
+  C:00C8H         PUBLIC        ?C?UIDIV
+  -------         ENDMOD        ?C?UIDIV
+
+Program Size: data=27.0 xdata=0 code=448
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

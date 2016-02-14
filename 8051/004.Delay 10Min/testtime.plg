@@ -1,0 +1,23 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+F:\ELECTRONIC\8051\Code\delay 10Min\testtime.uvproj
+Project File Date:  03/17/2014
+
+<h2>Output:</h2>
+Build target 'Target 1'
+compiling time.c...
+linking...
+Program Size: data=13.0 xdata=0 code=136
+creating hex file from "testtime"...
+"testtime" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling time.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY_MIN?TIME
+Program Size: data=13.0 xdata=0 code=136
+creating hex file from "testtime"...
+"testtime" - 0 Error(s), 1 Warning(s).

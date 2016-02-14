@@ -1,0 +1,138 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        01/11/2015  19:01:41  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\PROGRAM FILES (X86)\KEILC\C51\BIN\BL51.EXE PWM.obj TO PWM RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  PWM.obj (PWM)
+  C:\PROGRAM FILES (X86)\KEILC\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\PROGRAM FILES (X86)\KEILC\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  PWM (PWM)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0002H     UNIT         ?DT?PWM
+                    000AH     0016H                  *** GAP ***
+            BIT     0020H.0   0000H.4   UNIT         ?BI?PWM
+                    0020H.4   0000H.4                *** GAP ***
+            IDATA   0021H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0008H     UNIT         ?PR?MAIN?PWM
+            CODE    000BH     0003H     ABSOLUTE     
+            CODE    000EH     008CH     UNIT         ?C_C51STARTUP
+            CODE    009AH     0039H     UNIT         ?PR?PHIMNHAN?PWM
+            CODE    00D3H     0028H     UNIT         ?PR?TIMER0?PWM
+            CODE    00FBH     0011H     UNIT         ?PR?INIT?PWM
+            CODE    010CH     000FH     UNIT         ?C_INITSEG
+
+
+
+OVERLAY MAP OF MODULE:   PWM (PWM)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?PWM
+  +--> ?C_INITSEG
+
+?PR?MAIN?PWM
+  +--> ?PR?INIT?PWM
+  +--> ?PR?PHIMNHAN?PWM
+
+
+
+SYMBOL TABLE OF MODULE:  PWM (PWM)
+
+  VALUE           TYPE          NAME
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/11/2015  19:01:41  PAGE 2
+
+
+  ----------------------------------
+
+  -------         MODULE        PWM
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00A8H         PUBLIC        IE
+  D:0008H         PUBLIC        tocdo
+  B:0090H.5       PUBLIC        GIAM
+  C:0003H         PUBLIC        main
+  B:0090H.2       PUBLIC        TANG
+  D:0089H         PUBLIC        TMOD
+  C:00FBH         PUBLIC        init
+  D:0009H         PUBLIC        dem
+  B:0088H.5       PUBLIC        TF0
+  D:008CH         PUBLIC        TH0
+  B:0020H.0       PUBLIC        GIAM0
+  B:0020H.1       PUBLIC        GIAM1
+  D:008AH         PUBLIC        TL0
+  C:00D3H         PUBLIC        timer0
+  B:0088H.4       PUBLIC        TR0
+  C:009AH         PUBLIC        phimnhan
+  B:0020H.2       PUBLIC        TANG0
+  B:0020H.3       PUBLIC        TANG1
+  B:00A0H.0       PUBLIC        PWM
+  -------         PROC          TIMER0
+  C:00D3H         LINE#         17
+  C:00D7H         LINE#         19
+  C:00D9H         LINE#         20
+  C:00DBH         LINE#         21
+  C:00DDH         LINE#         22
+  C:00E7H         LINE#         23
+  C:00F4H         LINE#         24
+  C:00F6H         LINE#         25
+  -------         ENDPROC       TIMER0
+  -------         PROC          PHIMNHAN
+  C:009AH         LINE#         27
+  C:009AH         LINE#         28
+  C:009AH         LINE#         29
+  C:00A2H         LINE#         30
+  C:00A8H         LINE#         31
+  C:00AEH         LINE#         32
+  C:00B6H         LINE#         34
+  C:00BEH         LINE#         35
+  C:00C4H         LINE#         36
+  C:00CAH         LINE#         37
+  C:00D2H         LINE#         38
+  -------         ENDPROC       PHIMNHAN
+  -------         PROC          INIT
+  C:00FBH         LINE#         40
+  C:00FBH         LINE#         41
+  C:00FBH         LINE#         42
+  C:00FEH         LINE#         43
+  C:0101H         LINE#         44
+  C:0107H         LINE#         45
+  C:0109H         LINE#         46
+  C:010BH         LINE#         47
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/11/2015  19:01:41  PAGE 3
+
+
+  -------         ENDPROC       INIT
+  -------         PROC          MAIN
+  C:0003H         LINE#         49
+  C:0003H         LINE#         50
+  C:0003H         LINE#         51
+  C:0006H         LINE#         52
+  C:0006H         LINE#         53
+  C:0006H         LINE#         54
+  C:0009H         LINE#         55
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        PWM
+
+Program Size: data=11.4 xdata=0 code=283
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

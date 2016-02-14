@@ -1,0 +1,121 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        03/19/2013  17:54:28  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+F:\KEIL\C51\BIN\BL51.EXE 1hz-70-30 tang.obj TO 1hz-70-30 tang RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  1hz-70-30 tang.obj (1HZ_70_30_TANG)
+  F:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  1hz-70-30 tang (1HZ_70_30_TANG)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0002H     UNIT         ?DT?1HZ_70_30_TANG
+            IDATA   000AH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0058H     UNIT         ?PR?MAIN?1HZ_70_30_TANG
+            CODE    005BH     0020H     UNIT         ?PR?_DELAY_MS?1HZ_70_30_TANG
+            CODE    007BH     000CH     UNIT         ?C_C51STARTUP
+
+
+
+OVERLAY MAP OF MODULE:   1hz-70-30 tang (1HZ_70_30_TANG)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?1HZ_70_30_TANG
+
+?PR?MAIN?1HZ_70_30_TANG
+  +--> ?PR?_DELAY_MS?1HZ_70_30_TANG
+
+
+
+SYMBOL TABLE OF MODULE:  1hz-70-30 tang (1HZ_70_30_TANG)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        1HZ_70_30_TANG
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0008H         PUBLIC        do_rong_xung
+  B:00A0H.0       PUBLIC        P2_0
+  B:00A0H.1       PUBLIC        P2_1
+  B:00A0H.2       PUBLIC        P2_2
+  C:0003H         PUBLIC        main
+  D:0089H         PUBLIC        TMOD
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/19/2013  17:54:28  PAGE 2
+
+
+  B:0088H.5       PUBLIC        TF0
+  D:008CH         PUBLIC        TH0
+  D:008AH         PUBLIC        TL0
+  C:005BH         PUBLIC        _delay_ms
+  B:0088H.4       PUBLIC        TR0
+  D:0009H         PUBLIC        millisec
+  -------         PROC          _DELAY_MS
+  D:0006H         SYMBOL        timer
+  -------         DO            
+  D:0004H         SYMBOL        i
+  D:0002H         SYMBOL        j
+  -------         ENDDO         
+  C:005BH         LINE#         6
+  C:005BH         LINE#         7
+  C:005BH         LINE#         9
+  C:0065H         LINE#         10
+  C:007AH         LINE#         11
+  -------         ENDPROC       _DELAY_MS
+  -------         PROC          MAIN
+  C:0003H         LINE#         22
+  C:0003H         LINE#         23
+  C:0003H         LINE#         25
+  C:0006H         LINE#         26
+  C:0008H         LINE#         27
+  C:000BH         LINE#         28
+  C:000EH         LINE#         30
+  C:000EH         LINE#         31
+  C:000EH         LINE#         33
+  C:0011H         LINE#         34
+  C:0011H         LINE#         35
+  C:0013H         LINE#         36
+  C:0015H         LINE#         37
+  C:0018H         LINE#         38
+  C:001BH         LINE#         40
+  C:0028H         LINE#         41
+  C:0028H         LINE#         42
+  C:002AH         LINE#         43
+  C:002CH         LINE#         44
+  C:0035H         LINE#         45
+  C:0035H         LINE#         46
+  C:0037H         LINE#         47
+  C:0039H         LINE#         48
+  C:003CH         LINE#         49
+  C:003EH         LINE#         50
+  C:0041H         LINE#         51
+  C:0041H         LINE#         52
+  C:0044H         LINE#         53
+  C:004BH         LINE#         54
+  C:004DH         LINE#         55
+  C:0056H         LINE#         56
+  C:0059H         LINE#         57
+  C:0059H         LINE#         58
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        1HZ_70_30_TANG
+
+Program Size: data=11.0 xdata=0 code=135
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
